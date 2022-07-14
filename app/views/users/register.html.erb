@@ -1,0 +1,46 @@
+<style>
+    body{
+        /* background-image: url("bg_login"); */
+        background-image: url(<%= asset_path 'bg_login.png' %>);
+        background-repeat: no-repeat;
+        background-size: 100% 916px;
+    }
+    .flash-msg{
+        color: red;
+        margin-left: 20%;
+        padding-top: 5%;
+    }
+</style>
+<div id="div_style">
+<h2 style="margin-left: 25%; font-size: 30px;">Register</h2>
+    <% flash.each do |type, msg| %>
+        <div class = "flash-msg">
+            <%= msg %>
+        </div> 
+    <% end %>
+        <%= form_with(model: @user,  url: "/register", method: "POST") do |form| %>
+        <label for="user_name">Username :</label>
+        <%= form.text_field :username, :required => true,  id: "myInput", class: "text_box", style: "margin-left: 9%;" %><br>
+        <label for="email">Email id :</label>
+        <%= form.text_field :email_id, :required => true, :pattern => '[^@]+@[^@]+\.[a-z]{2,6}', id: "myInput" ,class: "text_box", style: "margin-left: 12%;"%><br>
+        <label for="password">Password :</label>
+        <%= form.password_field :password, :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", style: "margin-left: 10%;" %><br>
+        <label for="dob">Date of Birth :</label>
+        <%= form.date_field :dob, id: "myDueDate", :required => true, class: "text_box", style: "margin-left: 3%; width: 48%;" %><br>
+        <p style="margin-left: 16%;">Already have an account <a href="/login"> Log in</a></p><br>
+        <%= form.submit "Submit" , class: "text_box", style: "margin-left: 30%; width: 20%;" %>
+        <% end %>
+    <%# <form action="/login" method="POST">
+        <label for="user_name">Username :</label>
+        <input type="text" class="text_box" name="user[user_name]" placeholder="Enter your Username..." required style="margin-left: 9%;"> <br>
+        <label for="email">Email id :</label>
+        <input type="email" class="text_box" name="user[email_id]" placeholder="Enter your email id..." required style="margin-left: 12%;"><br>
+        <label for="password">Password :</label>
+        <input type="password" class="text_box" name="password" placeholder="Set password..." minlength="8" maxlength="12" required style="margin-left: 10%;"><br>
+        <label for="dob">Date of Birth :</label>
+        <input type="date" class="text_box" name="user[dateOfBirth]" min="1997-01-01" required style="margin-left: 5%;"><br><br><br><br>
+        <input type="submit" class="text_box" name="submit" value="Submit" style="margin-left: 30%; width: 20%;">
+        <br><br><br>
+    </form> %>
+</div>
+        

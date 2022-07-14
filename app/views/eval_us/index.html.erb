@@ -1,0 +1,81 @@
+
+<style>
+body {
+    background-image: url(<%= asset_path 'bg_login.png' %>);
+    background-size: cover;
+    height: 847px;
+    /* background-attachment: fixed;
+    position: center;
+    background-position: center center; */
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-size: 25px;
+  display: none;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  padding-top: 5%;
+  background-color: white;
+  color: red;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+<ul>
+  <li>
+    <a href="#index"> 
+        Home 
+    </a>
+  </li>
+  <li>
+    <a href="#">
+        About
+    </a>
+  </li>
+  <li>
+    <a href="#">
+        Create
+    </a>
+  </li>
+  <li style="font-size: 55%; ">
+    <% if current_user %>
+    <div class="dropdown">
+      <%= image_tag "profile.png", height: 50 %>
+    <div class="dropdown-content">
+      <div style="font-size:25px;" > <%= current_user.email_id %> </div>
+      <div><a href="/logout"  style="color: red; font-size: 25px;"> Logout </a></div> <br>
+    <%# <div> <%= link_to 'Log Out', logout_path %>
+        
+    </div>
+    </div>
+    <% else %>
+      <%= link_to 'Log In', login_path %>
+    <% end %>
+
+    <%# <a href="/login">
+      Login
+    </a> %>
+  </li>
+</ul>
+<div>
+  <h2 class="text_color">
+    Assess yourself by <span style="font-size: 95px;">evalU</span>
+  </h2>
+  <h3 id="fwsa_color">
+    Freshworks Software Academy
+  </h3>
+  <button id="btn_style">
+    Play
+  </button>
+</div>
