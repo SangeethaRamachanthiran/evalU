@@ -1,0 +1,294 @@
+// Place all the styles related to the creates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#text{
+  margin-top: -5px;
+  margin-left: 80px;
+  font-size: 3vw;
+  margin-bottom: 5px;
+  margin-right: 25%;
+}
+#add_btn{
+  width: 5vw;
+  font-size: 1vw;
+}
+// #container{
+//     display: flex;
+//     flex-direction: row;
+// }
+.question_tag{
+    transition: margin-left .5s;
+    padding: 16px;
+    width: 55%;
+    height: 40vh;
+    margin-left: 200px;
+    margin-top: 20px;
+    background-color: #3F9EED;
+    border-style: none;
+    opacity: 55%;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 2.5vw;
+    color: white;
+    font-family: Poppins;
+}
+::placeholder{
+    color: white;
+}
+.up_left{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 5px 50px 50px 5px; 
+    width: 30.3vw;
+    float: left;
+    height: 70px;
+    margin-left: -8px;
+    margin-top: 80px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.down_left{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 5px 50px 50px 5px; 
+    width: 30.3vw;
+    float: left;
+    height: 70px;
+    margin-left: -8px;
+    margin-top: 80px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+
+    
+}
+.up_right{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 32.4vw;
+    float: right;
+    height: 70px;
+    margin-left: 602px;
+    margin-top: 80px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.down_right{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 32.4vw;
+    float: right;
+    height: 70px;
+    margin-left: 602px;
+    margin-top: 80px;
+    font-size: 1.4vw;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } 
+.resb{
+  position: absolute;
+  right: 0; 
+  transition: ease-in-out 0.3s;  
+  width: 80%;
+  height: 100vh;
+}
+.resba{
+  position: absolute;
+  right: 0; 
+  width: 100%;
+  height: 100vh;
+  transition: ease-in-out 0.3s;
+}
+#body_container{
+  width: 100%;
+  height: 100vh;
+}
+
+#button{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  z-index: 1000;
+}
+body {
+  background: #333;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+@keyframes cdp-in {
+  from {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cdp {
+  position: relative;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0;
+  z-index: 6;
+  margin: 50px 0;
+  
+  animation: cdp-in 500ms ease both;
+  animation-timeout: 200ms;
+
+  &_i {
+    font-size: 14px;
+    text-decoration: none;
+    
+    transition: background 250ms;
+    
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 3px 6px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 38px;
+    border: 2px solid #fff;
+    line-height: 38px;
+    padding: 0;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .03em;
+    display: none;
+
+    &:first-child,
+    &:last-child {
+      padding: 0 16px;
+      margin: 0 12px 6px;
+    }
+
+    &:last-child,
+    &:nth-child(2),
+    &:nth-last-child(2) {
+      display: inline-block;
+    }
+  }
+
+  &_i:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &:not([actpage="1"]) &_i:nth-child(1) {
+    display: inline-block;
+  }
+}
+@for $i from 1 through 80 {
+  .cdp[actpage="#{$i}"] {
+    // 3 before
+    .cdp_i:nth-child(#{$i - 2}):not(:first-child):not(:nth-child(2)) {
+      display: inline-block;
+      pointer-events: none;
+      color: transparent;
+      border-color: transparent;
+      width: 50px;
+      &:after {
+        content: '...';
+        color: #fff;
+        font-size: 32px;
+        margin-left: -6px;
+      }
+    }
+    // 2 before
+    .cdp_i:nth-child(#{$i - 1}):not(:first-child) {
+      display: inline-block;
+    }
+    // before
+    .cdp_i:nth-child(#{$i}):not(:first-child) {
+      display: inline-block;
+    }
+    // active
+    .cdp_i:nth-child(#{$i + 1}) {
+      background-color: #000;
+      color: #fff;
+      display: inline-block;
+
+      +.cdp_i:last-child {
+        display: none !important;
+      }
+    }
+    // next
+    .cdp_i:nth-child(#{$i + 2}):not(:last-child) {
+      display: inline-block;
+    }
+    // 2 next
+    .cdp_i:nth-child(#{$i + 3}):not(:last-child) {
+      display: inline-block;
+    }
+    // 3 next
+    .cdp_i:nth-child(#{$i + 4}):not(:last-child):not(:nth-last-child(2)) {
+      display: inline-block;
+      pointer-events: none;
+      color: transparent;
+      border-color: transparent;
+      width: 50px;
+      &:after {
+        content: '...';
+        color: #fff;
+        font-size: 32px;
+        margin-left: -6px;
+      }
+    }
+  }
+}

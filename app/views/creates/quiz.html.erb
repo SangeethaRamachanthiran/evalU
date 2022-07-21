@@ -1,0 +1,177 @@
+<style>
+body{
+    background-image: url(<%= asset_path 'quiz.png' %>);
+    background-repeat: no-repeat;
+    background-size: 1930px 1190px;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.quiz_tag{
+    background-color: #FFC72E;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 12.17vw;
+    float: right;
+    height: 70px;
+    margin-left: 13.6vw;
+    margin-top: 50px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+}
+.fillup_tag{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 8.3vw;
+    float: right;
+    height: 70px;
+    margin-left: 17.5vw;
+    margin-top: 40px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+}
+.tof_tag{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 8.3vw;
+    float: right;
+    height: 70px;
+    margin-left: 17.5vw;
+    margin-top: 40px;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 5px;
+    font-family: Poppins;
+}
+</style>
+   
+<div id="body_container">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <button id="add_btn" > <a href="#"> + </a></button>
+    </div>
+    <span id="button" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <div id="container" class="resba">
+         <h2 id="text">Question</h2>
+        <div class="con_div">
+            <div class="que">
+                <input class="question_tag" type="text" name="question" placeholder=" Write a question ?" >
+            </div>
+            <div style= "position: absolute; top: 3%; right: 0; display: flex; flex-direction: column;">
+                <div class="quiz_tag">
+                    <p> Quiz </p>
+                </div>
+                <div class="fillup_tag">
+                    <p> Fill up </p>
+                </div>
+                <div class="tof_tag">
+                    <p> True or False </p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+            <div style= "display: flex; flex-direction: column;">
+                <input class="up_left" type="text" name="option_one" placeholder=" Option 1 " >
+                <input class="down_left" type="text" name="option_three" placeholder=" Option 3" >
+            </div>
+            <div class="right_div" style= "position: absolute; right: 0; display: flex; flex-direction: column;">
+                <input class="up_right" type="text" name="option_two" placeholder=" Option 2 " >
+                <input class="down_right" type="text" name="option_four" placeholder=" Option 4 " >
+            </div>
+        </div>
+        </div>
+    </div>
+   
+    <%# <div id="container">
+       
+        <div id="container">
+            
+            
+        </div>
+        
+    </div> %>
+</div>
+ <div class="content_detail__pagination cdp" actpage="1">
+			<a href="#!-1" class="cdp_i">prev</a>
+			<a href="#body_container" class="cdp_i">1</a>
+			<a href="#body_container" class="cdp_i">2</a>
+			<a href="#!3" class="cdp_i">3</a>
+			<a href="#!4" class="cdp_i">4</a>
+			<a href="#!5" class="cdp_i">5</a>
+			<a href="#!6" class="cdp_i">6</a>
+			<a href="#!7" class="cdp_i">7</a>
+			<a href="#!8" class="cdp_i">8</a>
+			<a href="#!9" class="cdp_i">9</a>
+			<a href="#!10" class="cdp_i">10</a>
+			<a href="#!11" class="cdp_i">11</a>
+			<a href="#!12" class="cdp_i">12</a>
+			<a href="#!13" class="cdp_i">13</a>
+			<a href="#!14" class="cdp_i">14</a>
+			<a href="#!15" class="cdp_i">15</a>
+      <a href="#!16" class="cdp_i">16</a>
+			<a href="#!17" class="cdp_i">17</a>
+			<a href="#!18" class="cdp_i">18</a>
+			<a href="#!19" class="cdp_i">19</a>
+			<a href="#!+1" class="cdp_i">next</a>
+		</div>
+
+<script>
+    function openNav() {
+    let cd =   document.getElementById("container");
+    document.getElementById("mySidenav").style.width = "20%";
+    document.getElementById("button").style.display = "none";
+    cd.classList.add('resb')
+    cd.classList.remove('resba')
+    }
+
+    function closeNav() {
+      let cd =   document.getElementById("container");
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("button").style.display = "block";
+    cd.classList.remove("resb");
+    cd.classList.add('resba')
+
+    
+    }
+    window.onload = function(){
+        event.prevent.default();
+  let paginationPage = parseInt($('.cdp').attr('actpage'), 10);
+  $('.cdp_i').on('click', function(){
+    var go = $(this).attr('href').replace('#!', '');
+    if (go === '+1') {
+      paginationPage++;
+    } else if (go === '-1') {
+      paginationPage--;
+    }else{
+      paginationPage = parseInt(go, 10);
+    }
+    $('.cdp').attr('actpage', paginationPage);
+  });
+};
+    // function clickMethod() {
+    //         // let op = window.open(a);
+    //         let a = document.createElement('a'); 
+    //         // let link = document.createTextNode("This is link");
+    //              // Append the text node to anchor element.
+    //         // a.appendChild(link); 
+    //              // Set the title.
+    //         // a.title = "This is Link";   
+    //             // Set the href property.
+    //         a.href = "/quiz";   
+    //             // Append the anchor element to the body.
+    //         document.body.appendChild(a); 
+    //     }
+</script>
+
+

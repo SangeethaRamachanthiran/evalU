@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
 
   user = User.find_by_email_id(params[:email_id])
-   if @input_list != user
+  if user && user.authenticate(params[:password])
      session[:user_id] = user.id
      flash.now[:notice] = "Logged in successfully"
      redirect_to '/home'

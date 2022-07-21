@@ -4,25 +4,10 @@
 // Place all the styles related to the evalUs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-// body{
-//     background-image: url("bg_login.png");
-//     background-repeat: no-repeat;
-//     // background-position: fixed;
-//     background-size: 100% 816%;
-//     // background-size:auto;
-    
-// }
-// body {
-//     background: url('bg_login.png') no-repeat center center;
-//     background-size: cover;
-//     height: 847px;
-//     // background-attachment: fixed;
-//     // position: center;
-//     // background-position: center center;
-// }
+
 .text_color{
     color: whitesmoke;
-    font-size: 75px;
+    font-size: 5vw;
     text-align: center;
     padding-top: 15%;
     text-shadow: 2px 2px black;
@@ -30,9 +15,10 @@
 }
 #fwsa_color{
     color: whitesmoke;
-    font-size: 35px;
+    font-size: 2.5vw;
     text-align: center;
     padding-top: 0%;
+    
 }
 #btn_style{
     font-size: 25px;
@@ -42,11 +28,12 @@
     padding-right: 5px;
     margin-left: 46%;
     margin-top: 1%;
-    background-color: #FF9736;
+    background-color: #E68007;
     color: white;
     width: 8%;
     border-radius: 10px;
-    border-color: #FF9736;
+    border-style: none;
+    padding: 6px;
 }
 ul {
     padding-left: 75%;
@@ -57,7 +44,9 @@ ul {
     padding-bottom: 10px;
     border-color: rgba(0, 0, 0, 0.458);
     position: fixed;
+    width: max-content;
     width: 100%;
+    font-family: Poppins;
     }
     
     li {
