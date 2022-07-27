@@ -1,0 +1,29 @@
+<style>
+    #container{
+        background-color: blue;
+        color: white;
+        font-size:1vw;
+    }
+    .questionContainer{
+        background-color: red;
+        width: 25%;
+    }
+</style>
+<div id="container">
+
+</div>
+<script>
+let myArray = [{topic_name: "Sports", image: "<%= asset_path 'image_sport.png' %>"}];
+
+
+    document.getElementById("container").innerHTML = "";
+  let lengthOfArray = myArray.length;
+  for (let i = 0; i < lengthOfArray; i++) {
+    const containerContains =
+      `<div class="questionContainer">
+        <img src="`+myArray[i].image +`" alt="`+myArray[i].topic_name +`" class="image_topic">
+        <span class="name_topic">` +myArray[i].topic_name+` <span>
+      </div>`
+    document.getElementById("container").innerHTML += containerContains;
+  }
+</script>

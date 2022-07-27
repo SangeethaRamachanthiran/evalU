@@ -1,0 +1,51 @@
+// Place all the styles related to the plays controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    // background-color: rgb(132, 129, 129);
+    background-image: linear-gradient(to right, #3F9EED, #f18904);
+}
+.contain_code{
+    font-size: 2vw;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 255, 0.133)  10px 10px 10px;
+    width: 20%; 
+    margin-left: 20vw;
+    margin-top: 10vw;
+    text-align: center;
+    padding: 25px;
+    padding-top: 5vw;
+    padding-bottom: 8vw;
+    font-family: Poppins;
+    color: black;
+    cursor: pointer; 
+}
+.topic{
+    font-size: 2vw;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: rgba(255, 255, 0, 0.173) 10px 10px 10px;
+    width: 20%; 
+    height: 8%;
+    /* margin-left: 28vw;
+    margin-top: 25vw; */
+    text-align: center;
+    padding: 35px;
+    padding-top: 10vw;
+    padding-bottom: 8vw;
+    font-family: Poppins;
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    left: 58vw;
+    top: 23%;
+    cursor: pointer;
+}
+.contain_code:hover{
+    box-shadow: 20px 20px 50px 10px #00539c3f inset;
+}
+.topic:hover{
+    box-shadow: 20px 20px 50px 10px #bf900dbe inset;
+}
+

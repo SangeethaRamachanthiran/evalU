@@ -1,0 +1,125 @@
+<style>
+    .quiz_tag{
+        text-align: center;
+        background-color: #B3B3B3;
+        font-weight: 900;
+        color: white;
+        border-radius: 50px 5px 5px 50px; 
+        width: 8.3vw;
+        /* float: right; */
+        height: 60px;
+        margin-left: 31%;
+        margin-top: 8vw;
+        font-size: 24px;
+        /* padding-bottom: 2px; */
+        padding-left: 55px;
+        font-family: Poppins;
+    }
+    .fillup_tag{
+        text-align: center;
+        background-color: #B3B3B3;
+        font-weight: 900;
+        color: white;
+        border-radius: 50px 5px 5px 50px; 
+        width: 8.3vw;
+        /* float: right; */
+        height: 60px;
+        margin-left: 5vw;
+        margin-top: 40px;
+        font-size: 24px;
+        /* padding-bottom: 5px; */
+        padding-left: 55px;
+        font-family: Poppins;
+    }
+    .tof_tag{
+        text-align: center;
+        background-color: #FFC72E;
+        font-weight: 900;
+        color: white;
+        border-radius: 50px 5px 5px 50px; 
+        width: 12vw;
+        /* float: right; */
+        height: 60px;
+        margin-left: 8%;
+        margin-top: 40px;
+        font-size: 24px;
+        /* padding-bottom: 5px; */
+        padding-left: 50px;
+        padding-right: 5px;
+        font-family: Poppins;
+    }
+    .false{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 22.3vw;
+    /* // float: right;  */
+    height: 76px;
+ /* margin-left: 419px; */
+    margin-top: 0%;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.true{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 5px 50px 50px 5px; 
+    width: 22.3vw;
+    float: left;
+    height: 76px;
+    /* // margin-left: -8px;
+    // margin-left: 25.2vw; */
+    margin-top: 21%;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+</style>
+
+<div id="fill_container">
+    <div id="container" class="resba">
+         <h2 id="text">Question</h2>
+        <div class="con_div">
+            <div class="que">
+                <input class="question_tag" type="text" name="question" placeholder=" Write a question ?" >
+            </div>
+            <div style= "position: absolute; top: 3%; right: 92px; display: flex; flex-direction: column;">
+                <div class="quiz_tag">
+                    <a href="/quiz"> Quiz </a>
+                </div>
+                <div class="fillup_tag">
+                    <a href="/fill_up"> Fill up </a>
+                </div>
+                <div class="tof_tag">
+                    <a> True or False </a>
+                </div>
+            </div>
+           
+            <div style="display: flex; flex-direction: row;">
+                <div style= "display: flex; flex-direction: column;">
+                    <button class="true"> True </button>
+                </div>
+                <div>
+                    <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
+                    <span class="time-span"> 15 </span>
+                    </button>
+                </div>
+                <div class="right_div" style= "position: absolute; top: 68%; right: 92px; display: flex; flex-direction: column; ">
+                    <button class="false"> False </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            alert('Hello');
+        }
+    </script>

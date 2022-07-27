@@ -56,21 +56,23 @@ body{
 }
 
 </style>
-        <%= render partial:"quizzes"%>
-
+        <%= render partial:"fillup"%>
+ <% @questions.each do |record| %>
 <div class="main-container">
-<%# <div class="navbar-side" id="nav-side">
+<div class="navbar-side" id="nav-side">
         <button id="btn-add" style="width: 45%; font-size: 1vw; " onclick="myfunction()"> + </button>
         <div id="page_div">  </div>
-</div> %>
+</div>
   <div id="body_container">
     <div id="container" class="resba">
          <h2 id="text">Question</h2>
         <div class="con_div">
         <form action="/store" method="post">
+       
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <div class="que">
-                <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                <%# <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" > %>
+                <span class="question_tag"><%= record.question %></span>
             </div>
             <div style= "position: absolute; top: 3%; right: 93px; display: flex; flex-direction: column;">
                 <div class="quiz_tag">
@@ -85,14 +87,11 @@ body{
             </div>
             <div style="display: flex; flex-direction: row;">
                 <div style= "display: flex; flex-direction: column;">
-                    <div style="display: flex; flex-direction: column">
-                        <input class="up_left" type="text" name="quiz[option1]" placeholder=" Option 1 " >
-                        <input type="radio" name="quiz[answer]" value="a" class="check-box" style="position: absolute; left: 47%; margin-top: 4.15%;">
-                    </div>
-                    <div style="display: flex; flex-direction: column">
-                        <input class="down_left" type="text" name="quiz[option3]" placeholder=" Option 3" >
-                        <input type="radio" name="quiz[answer]" value="c" class="check-box" style="position: absolute; left: 47%; margin-top: 3.25%;">
-                    </div>   
+                    <%# <input class="up_left" type="text" name="quiz[option1]" placeholder=" Option 1 " >
+                    <input class="down_left" type="text" name="quiz[option3]" placeholder=" Option 3" > %>
+                    <span class="up_left"><%= record.option1 %></span>
+                    
+                    <span class="down_left"><%= record.option3 %></span>
                 </div>
                 <div>
                     <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
@@ -100,24 +99,21 @@ body{
                     </button>
                 </div>
                 <div class="right_div" style= "position: absolute; right: 92px; display: flex; flex-direction: column; ">
-                    <div style="display: flex; flex-direction: column">
-                        <input class="up_right" type="text" name="quiz[option2]" placeholder=" Option 2 " >
-                        <input type="radio" name="quiz[answer]" value="b" class="check-box" style="position: absolute; left: 84%; margin-top: 16%;">
-                    </div>
-                    <div style="display: flex; flex-direction: column">
-                        <input class="down_right" type="text" name="quiz[option4]" placeholder=" Option 4 " >
-                        <input type="radio" name="quiz[answer]" value="d" class="check-box" style="position: absolute; left: 84%; margin-top: 13%;">
-                    </div>
+                    <%# <input class="up_right" type="text" name="quiz[option2]" placeholder=" Option 2 " >
+                    <input class="down_right" type="text" name="quiz[option4]" placeholder=" Option 4 " > %>
+                    <span class="up_right"><%= record.option2 %></span>
+                    <span class="down_right"><%= record.option4 %></span>
                 </div>
             </div>
             <button type="submit">save</button>
+           
         </form>
         </div>
     </div>
 </div> 
 
 </div>
-
+ <% end %>
 
 <script>
     function myfunction() {

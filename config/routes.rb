@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'topics', to: 'plays#topics'
+  get 'play', to: 'plays#choose'
   get '/quiz', to: 'creates#quiz'
   get '/fill_up', to: 'creates#fill_up'
+  get '/trueOrFalse', to: 'creates#true_or_false'
   get '/home', to: 'eval_us#index'
   get '/register', to: 'users#register'
   post '/create', to: 'users#create'
@@ -10,6 +14,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:login, :create, :destroy]
   get 'login', to: 'sessions#login', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
-
+match '/store' , to: 'creates#store' , via: "post"
 
 end
