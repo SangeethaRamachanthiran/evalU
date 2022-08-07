@@ -6,9 +6,9 @@
 ### 1. Register - Completed
 ### 2. Login - Completed
 ### 3. Add question - Completed
-### 4. Store question in user library - Incomplete(Frontend)
+### 4. Store question in user library - Completed(Backend)
 ### 5. List question - Completed
-### 6. Set timer - Incomplete(Frontend)
+### 6. Set timer - Completed(Backend)
 ### 7. Add topics - Completed
 ### 8. List topics - Completed
 ### 9. User Profile - Yet to do
