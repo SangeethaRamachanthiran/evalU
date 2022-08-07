@@ -1,18 +1,87 @@
 <style>
-    #container{
-        background-color: blue;
-        color: white;
-        font-size:1vw;
+    body{
+      background-image: url(<%= asset_path 'add_bg.png' %>);
+      background-repeat: no-repeat;
+      background-size: 100vw 100vh; 
+      scroll-behavior: smooth;
+      Overflow-y:scroll;
     }
-    .questionContainer{
-        background-color: red;
-        width: 25%;
+    #big_container{
+        display: flex;
+        flex-direction: row;
+    }
+    .container{
+      position: relative;
+      width: 25%;
+      display: flex;
+      flex-direction: row;
+      margin-top: 3.5%;
+      margin-left: 8%;
+    }
+    
+    .image_topic{
+      opacity: 1;
+      display: block;
+      width: 100vw;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+      border-color: lightgray;
+      border-style: groove;
+    }
+    .middle{
+      width: 100%;
+      background-color: #FF9736;
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    }
+    .container:hover .middle {
+      opacity: 1;
+    }
+    .container:hover .image_topic {
+      -webkit-filter: blur(1px); 
+      filter: blur(1px); 
+      border-color: lightgray;
+      border-style: groove;
+    }
+    .name_topic{
+      color: white;
+      font-size: 25px;
+      padding: 16px 32px;
+    }
+    #add_btn{
+      font-family: Poppins;
+      width: 10vw;
+      background-color: #21BE02;
+      font-size: 1.15vw;
+      margin-left: 80vw;
+      margin-top: 1vw;
+      border-style: none;
     }
 </style>
-<div id="container">
-
+<button id="add_btn">
+  <a href="add" style="text-decoration: none; color: white;">
+     add topic 
+  </a>
+</button>
+<div id="big_container">
+    <% @topic_list.each do |list| %>
+    <div class="container">
+      <img src=" <%= list.image_of_topic %> " alt=" <%= list.text_of_topic %>" class="image_topic">
+      <div class="middle">
+        <div class="name_topic"><%= list.text_of_topic %></div>
+      </div>
+    </div>
+    <% end %>
+  
 </div>
-<script>
+<!-- <script>
 let myArray = [{topic_name: "Sports", image: "<%= asset_path 'image_sport.png' %>"}];
 
 
@@ -20,10 +89,12 @@ let myArray = [{topic_name: "Sports", image: "<%= asset_path 'image_sport.png' %
   let lengthOfArray = myArray.length;
   for (let i = 0; i < lengthOfArray; i++) {
     const containerContains =
-      `<div class="questionContainer">
-        <img src="`+myArray[i].image +`" alt="`+myArray[i].topic_name +`" class="image_topic">
-        <span class="name_topic">` +myArray[i].topic_name+` <span>
+      `<div class="topic_container">
+        <% @topic_list.each do |list| %>
+        <img src=" <%= list.image_of_topic %> " alt=" <%= list.text_of_topic %>" class="image_topic">
+        <span class="name_topic"><%= list.text_of_topic %><span>
+        <% end %>
       </div>`
     document.getElementById("container").innerHTML += containerContains;
   }
-</script>
+</script> -->

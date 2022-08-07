@@ -4,43 +4,58 @@
 // Place all the styles related to the evalUs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+#image_div{
+   width: 55%;
+}
+#logo_evalu{
+    width: 10vw;
+    margin-left: 5vw;
+    margin-top: 2vw;
+    
+}
 .text_color{
-    color: whitesmoke;
-    font-size: 5vw;
-    text-align: center;
-    padding-top: 15%;
-    text-shadow: 2px 2px black;
-    color: linear-gradient( #00539c3f, #00539cac); 
+    font-family: Poppins;
+    margin-left: 10vw;
+    color: #012C3D;
+    font-size: 4vw;
+    // text-align: center;
+    padding-top: 8vw;
+    // text-shadow: 2px 2px #2F85CC;
 }
 #fwsa_color{
-    color: whitesmoke;
-    font-size: 2.5vw;
-    text-align: center;
-    padding-top: 0%;
+    font-family: Poppins;
+    font-weight: bold;
+    position: absolute;
+    left: 11%;
+    top: 13vw;
+    color: #16a7b7;
+    font-size: 1.5vw;
     
 }
 #btn_style{
-    font-size: 25px;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 1.5vw;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 46%;
-    margin-top: 1%;
-    background-color: #E68007;
+    margin-left: 11vw;
+    margin-top: -2%;
+    background-color: #24B7C6;
     color: white;
-    width: 8%;
+    width: 10vw;
+    height: 5.5vh;
     border-radius: 10px;
     border-style: none;
     padding: 6px;
 }
 ul {
-    padding-left: 75%;
+    padding-left: 55vw;
     list-style-type: none;
     overflow: hidden;
-    padding-top: 20px;
-    margin: -4%;
+    padding-top: 3vw;
+    margin-top: -2%;
     padding-bottom: 10px;
     border-color: rgba(0, 0, 0, 0.458);
     position: fixed;
@@ -55,11 +70,14 @@ ul {
     
     li a {
     display: block;
-    color: whitesmoke;
+    color: #012C3D;
     font-size: 25px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     }
 
+    li a:hover{
+        font-weight: 900;
+    }
     

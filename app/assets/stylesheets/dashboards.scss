@@ -1,0 +1,55 @@
+// Place all the styles related to the dashboards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    // background-image: url('explore.png');
+    // background-repeat: no-repeat;
+    // background-size: 100vw 100vh;
+    // background-attachment: fixed;
+    background-color: white;
+    scroll-behavior: smooth;
+    Overflow-y:scroll;
+}
+.sidenav{
+    border-radius: 0px 70px 70px 0px;
+    background-color: #24B7C6;
+    width: 18vw;
+    height: 68vh;
+    margin-left: -1.8%;
+    margin-top: 8vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Poppins;
+}
+#tri_id{
+    margin-left: -1px;
+    margin-top: 24.5vw;
+    height: 3vw;
+    width: auto;
+}
+.sidenav a{
+    text-decoration: none;
+    color: white;
+    font-size: 2vw;
+    margin-top: 4vw;
+    margin-left: 0.5vw;
+}
+.image_class{
+    margin-left: 2vw;
+    margin-top: 4vw;
+}
+.container{
+   background-color: #24B7C6; 
+   padding: 10px;
+   margin: 2vw;
+   width: 55vw;
+   color: white;
+   font-family: Poppins;
+}
+.icon{
+    width: 3vw;
+    height: 3vw;
+    margin-left: 25vw;
+    margin-top: 1.5vw;
+}

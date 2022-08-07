@@ -1,0 +1,62 @@
+<style>
+ body{
+    background: white;
+ }
+</style>
+<div id="body_container">
+        
+                <div id="container" class="resba">
+                    <div class="timer_btn">
+                        <span class="timer_quiz" id="time-span"> </span>
+                    </div>
+                    <div class="con_div">
+                        <!-- <form action="" method=""> -->
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <div class="que" style="height: 30vh;">
+                                <%# <div class="numnav">
+                                    <input type="numbers" name="quiz[question_number]" class="ques_num">
+                                </div> %>
+                                <span class="question_id"></span>
+                                <span class="question_tag" style=""></span>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style= "display: flex; flex-direction: column;">
+                                    <div>
+                                        <%# <div class="opt_A"></div> %>
+                                        <span class="up_left" style="height: 15vh; margin-top: 5vw"></span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                                
+                       
+                    </div>
+                </div>
+            </div> 
+        <!-- </form> -->
+        </div>
+    </div>
+</div> 
+<%# <% @questions.each do |record| %>
+<%# <div id="fill_container">
+    <div>
+        <div class="time-btn" >
+            <span class="timer_quiz"> 15 </span>
+        </div>
+    </div>
+    <div id="container" class="resba">
+        <div class="con_div">
+            <div class="que">
+               
+                <span class="question_tag">uxgsyx </span> 
+            </div>
+           <div style="display: flex; flex-direction: column;">
+                
+                <div class="right_div" style= "position: absolute; right: 92px; display: flex; flex-direction: column; ">
+                    <input class="opt_ans" type="text" name="type_ans" placeholder=" Type your answer " >
+                </div>
+           </div>
+        </div>
+        </div>
+    </div> %>
+<%# <% end %> 

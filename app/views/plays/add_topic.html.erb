@@ -1,0 +1,66 @@
+<style>
+    body{
+        background-image: url(<%= asset_path 'add_bg.png' %>);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh; 
+    }
+    #contain_form{
+        /* background-color: blue; */
+        width: 30vw;
+        height: 50vh;
+        margin-left: 35%;
+        margin-top: 12%;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        background-color: #f3f3f3bb;
+        border-radius: 20px;
+    }
+    .topic-text{
+        background-color: #FFFFFF;
+        color: black;
+        font-family: Poppins;
+        font-size: 1vw;
+        border-style: none;
+        border-radius: 15px;
+        width: 20vw;
+        margin-left: 5vw;
+        margin-top: 1vw;
+        height: 5vh;
+    }
+    .topic-image{
+        background-color: #FFFFFF;
+        color: black;
+        font-family: Poppins;
+        font-size: 1vw;
+        border-style: none;
+        border-radius: 15px;
+        width: 20vw;
+        margin-left: 5vw;
+        margin-top: 2vw;
+        height: 5vh;
+    }
+    .topic-btn{
+        background-color: #61D04B;
+        color: black;
+        font-family: Poppins;
+        font-size: 1vw;
+        border-style: none;
+        border-radius: 15px;
+        width: 10vw;
+        margin-left: 10vw;
+        margin-top: 2vw;
+        height: 5vh;
+    }
+    ::placeholder{
+        color: black;
+    }
+</style>
+<div id="contain_form">
+    <form action="/added" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h1 style="margin-left: 35%; padding-top: 15%;">Add Topic</h1>
+        <input class="topic-text" type="text" name="topic[text_of_topic]" placeholder="Topic name...">
+        <input class="topic-image" type="text" name="topic[image_of_topic]" placeholder="Image url...">
+        <input class="topic-btn" type="submit" name="button" value="Add">
+    </form>
+</div>

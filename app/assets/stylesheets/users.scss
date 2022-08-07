@@ -5,26 +5,29 @@
 .text_box{
         width: 375px;
         height: 32px;
-        background-color: #EAEAEA;
-        border-color: #EAEAEA;
+        // background-color:rgba(255, 255, 255, 0.23);
+        background: rgba(175, 182, 199, 0.23);
+        border-color: rgba(175, 182, 199, 0.23);
         border-radius: 14px;
         font-size: 20px;
         padding: 8px;
         margin-top: 15%;
         font-family: 'Poppins';
-}
-#div_style{
-        background: rgba(255, 255, 255, 0.23);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        font-size: 22px;
+}
+#div_style{
+        // background: rgba(255, 255, 255, 0.23);
+        // border-radius: 16px;
+        // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        // backdrop-filter: blur(5px);
+        // -webkit-backdrop-filter: blur(5px);
+        // border: 1px solid rgba(255, 255, 255, 0.3);
+        // font-size: 22px;
         width: 480px;
         height: 540px;
-        margin-left: 60px;
-        margin-top: 140px;
+        margin-left: -8%;
+        margin-top: 8vw;
         padding: 30px;
         font-family: 'Poppins'; 
 }

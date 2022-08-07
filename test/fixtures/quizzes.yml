@@ -2,14 +2,18 @@
 
 one:
   question: MyString
-  option-1: MyString
-  option-2: MyString
-  option-3: MyString
-  option-4: MyString
+  optionA: MyString
+  optionB: MyString
+  optionC: MyString
+  optionD: MyString
+  answer: MyString
+  timer: 1
 
 two:
   question: MyString
-  option-1: MyString
-  option-2: MyString
-  option-3: MyString
-  option-4: MyString
+  optionA: MyString
+  optionB: MyString
+  optionC: MyString
+  optionD: MyString
+  answer: MyString
+  timer: 1

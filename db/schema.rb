@@ -10,17 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_26_115738) do
+ActiveRecord::Schema.define(version: 2022_08_05_071656) do
 
   create_table "quizzes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "question"
-    t.string "option1"
-    t.string "option2"
-    t.string "option3"
-    t.string "option4"
+    t.string "optionA"
+    t.string "optionB"
+    t.string "optionC"
+    t.string "optionD"
+    t.string "answer"
+    t.integer "timer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "answer"
+  end
+
+  create_table "random_numbers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "random_num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "quiz_id", null: false
+    t.index ["quiz_id"], name: "index_random_numbers_on_quiz_id"
+  end
+
+  create_table "topics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_of_topic"
+    t.string "text_of_topic"
+    t.index ["image_of_topic"], name: "index_topics_on_image_of_topic", unique: true
+    t.index ["text_of_topic"], name: "index_topics_on_text_of_topic", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,4 +52,5 @@ ActiveRecord::Schema.define(version: 2022_07_26_115738) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "random_numbers", "quizzes"
 end

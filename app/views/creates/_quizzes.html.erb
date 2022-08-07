@@ -56,58 +56,62 @@ body{
 }
 
 </style>
-        <%= render partial:"fillup"%>
+        <%# <%= render partial:"fillup"%> 
  <% @questions.each do |record| %>
-<div class="main-container">
-<div class="navbar-side" id="nav-side">
-        <button id="btn-add" style="width: 45%; font-size: 1vw; " onclick="myfunction()"> + </button>
-        <div id="page_div">  </div>
+  <div style="display: flex; flex-direction: row; position: fixed;">
+    <%= image_tag 'EVALU.png', id: "logo_evalu",  :style => "margin-top: -6.5vw; width: 10vw; height: 6vh; margin-left: 4vw; "%>
+ </div>
+<div class="sidenav">
+    <h2 > Types </h2>
+            <a href="" onclick="myfunction_3()">Quiz</a>
+            <a href="" onclick="myfunction_3()">Fill up</a>
+            <a href="" onclick="myfunction_3()">True or false</a>
 </div>
-  <div id="body_container">
-    <div id="container" class="resba">
-         <h2 id="text">Question</h2>
-        <div class="con_div">
-        <form action="/store" method="post">
-       
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <div class="que">
-                <%# <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" > %>
-                <span class="question_tag"><%= record.question %></span>
-            </div>
-            <div style= "position: absolute; top: 3%; right: 93px; display: flex; flex-direction: column;">
-                <div class="quiz_tag">
-                    <a href="/quiz"> Quiz </a>
+<div class="main-container">
+            <div id="body_container">
+        
+                <div id="container" class="resba">
+                    <div class="timer_btn">
+                        <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
+                    </div>
+                    <div class="con_div">
+                        <!-- <form action="" method=""> -->
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <div class="que" style="display: flex; flex-direction:row;">
+                                <!-- <%# <div class="numnav">
+                                    <input type="numbers" name="quiz[question_number]" class="ques_num">
+                                </div> %> -->
+                                <span class="question_id"><%= record.id %></span>
+                                <span class="question_tag"><%= record.question %></span>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style= "display: flex; flex-direction: column;">
+                                    <div style="display: flex; flex-direction: row;">
+                                        <div class="opt_A">A</div>
+                                        <span class="up_left"><%= record.optionA %></span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: row;">
+                                        <span class="opt_B">B</span>
+                                        <span class="up_right"><%= record.optionB %></span>
+                                    </div>   
+                                
+                                    <div style="display: flex; flex-direction: row;">
+                                        <span class="opt_C">C</span>
+                                        <span class="down_left"><%= record.optionC %></span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: row;">
+                                        <span class="opt_D">D</span>
+                                        <span class="down_right"><%= record.optionD %></span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                                
+                       
+                    </div>
                 </div>
-                <div class="fillup_tag">
-                    <a href="/fill_up"> Fill up </a>
-                </div>
-                <div class="tof_tag">
-                    <a href="/trueOrFalse"> True or False </a>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-                <div style= "display: flex; flex-direction: column;">
-                    <%# <input class="up_left" type="text" name="quiz[option1]" placeholder=" Option 1 " >
-                    <input class="down_left" type="text" name="quiz[option3]" placeholder=" Option 3" > %>
-                    <span class="up_left"><%= record.option1 %></span>
-                    
-                    <span class="down_left"><%= record.option3 %></span>
-                </div>
-                <div>
-                    <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
-                    <span class="time-span"> 15 </span>
-                    </button>
-                </div>
-                <div class="right_div" style= "position: absolute; right: 92px; display: flex; flex-direction: column; ">
-                    <%# <input class="up_right" type="text" name="quiz[option2]" placeholder=" Option 2 " >
-                    <input class="down_right" type="text" name="quiz[option4]" placeholder=" Option 4 " > %>
-                    <span class="up_right"><%= record.option2 %></span>
-                    <span class="down_right"><%= record.option4 %></span>
-                </div>
-            </div>
-            <button type="submit">save</button>
-           
-        </form>
+            </div> 
+        <!-- </form> -->
         </div>
     </div>
 </div> 
@@ -116,16 +120,15 @@ body{
  <% end %>
 
 <script>
-    function myfunction() {
-       
-        // let btn = document.getElementById("")
-        // for (let i = 1; i < 2; i++) {
-        //     let myDiv = document.getElementById("page_div");
-        //     let button = document.createElement("BUTTON");
-        //     button.innerHTML = "Page" + i;
-        //     myDiv.appendChild(button);
-        // }
-    }
+// let time = document.getElementById("time-span").innerText;
+//     const countdownEl = document.getElementById("time-span");
+//     setInterval(updateCountdown, 1000);
+    
+//     function updateCountdown() {
+//         const sec = time % 60;
+//         countdownEl.innerHTML = `${sec}`;
+//         time--;
+//     }
 </script>
 
 

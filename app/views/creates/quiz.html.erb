@@ -1,8 +1,57 @@
 <style>
+    .false{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 22.3vw;
+    /* // float: right;  */
+    height: 76px;
+ /* margin-left: 419px; */
+    margin-top: 0%;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.true{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 5px 50px 50px 5px; 
+    width: 22.3vw;
+    float: left;
+    height: 76px;
+    /* // margin-left: -8px;
+    // margin-left: 25.2vw; */
+    margin-top: 21%;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
+.up_type{
+    background-color: #B3B3B3;
+    font-weight: 900;
+    color: white;
+    border-radius: 50px 5px 5px 50px; 
+    width: 44vw;
+    /* // float: right;  */
+    height: 76px;
+    /* // margin-left: 419px; */
+    margin-top: 12%;
+    font-size: 24px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    font-family: Poppins;
+    border-style: none;
+}
 body{
     background-color: white;
-     scroll-behavior: smooth;
-     Overflow-y:scroll;
+    scroll-behavior: smooth;
+    Overflow-y:scroll;
 }
 
 .quiz_tag{
@@ -54,82 +103,233 @@ body{
     padding-right: 5px;
     font-family: Poppins;
 }
+.sidenav {
+  position: fixed;
+  border-radius: 50px 50px 0px 0px;
+  height: 100vw;
+  width: 18vw;
+  position: fixed;
+  z-index: 1;
+  top: 3vw;
+  left: 0;
+  background-color: #24B7C6;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  font-family: Poppins;
+  margin-left: 0vw;
+  margin-top: 0.5vw;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: white;
+  display: block;
+}
+.sidenav h2 {
+  font-family: Poppins;
+  border-radius: 5px 0px 50px 5px;
+  /* text-align: center; */
+  /* background-color: rgb(255, 255, 255); */
+  margin-right: 4vw;
+  margin-left: 0vw;
+  margin-top: 4vw;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 3.5rem;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  font-weight: 900;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
 </style>
-        <%= render partial:"quizzes"%>
-
+<%= render partial:"quizzes" %>
+<div style="display: flex; flex-direction: row; position: fixed;">
+    <%= image_tag 'EVALU.png', id: "logo_evalu"%>
+   
+     <!-- value = "<%= rand 10000..100000 %>" -->
+ </div>
+<div class="sidenav">
+    <h2 > Types </h2>
+            <a href="" onclick="myfunction_3()">Quiz</a>
+            <a href="" onclick="myfunction_3()">Fill up</a>
+            <a href="" onclick="myfunction_3()">True or false</a>
+            <button class="btn_clear">Save</button>
+</div>
 <div class="main-container">
-<%# <div class="navbar-side" id="nav-side">
-        <button id="btn-add" style="width: 45%; font-size: 1vw; " onclick="myfunction()"> + </button>
-        <div id="page_div">  </div>
-</div> %>
-  <div id="body_container">
-    <div id="container" class="resba">
-         <h2 id="text">Question</h2>
-        <div class="con_div">
-        <form action="/store" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <div class="que">
-                <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+        <!-- <form action="/save" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="random">
+                <input id="random" type="text" name="randoms[random_num]">
             </div>
-            <div style= "position: absolute; top: 3%; right: 93px; display: flex; flex-direction: column;">
-                <div class="quiz_tag">
-                    <a href="/quiz"> Quiz </a>
-                </div>
-                <div class="fillup_tag">
-                    <a href="/fill_up"> Fill up </a>
-                </div>
-                <div class="tof_tag">
-                    <a href="/trueOrFalse"> True or False </a>
-                </div>
+        </form> -->
+    <!-- true or false container -->
+    <!-- <div id="body_container_3">
+        <div id="container" class="resba">
+            <h2 id="text">Question</h2>
+            <div class="con_div">
+                <form action="/store" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <div class="que">
+                        <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                    </div>
+                    <div style= "position: absolute; top: -2vw; right: 0vw; display: flex; flex-direction: column;">
+                        <div class="quiz_tag">
+                            <a href="" onclick="myfunction_3()"> Quiz </a>
+                        </div>
+                        <div class="fillup_tag">
+                            <a href="" onclick="myfunction_1()"> Fill up </a>
+                        </div>
+                        <div class="tof_tag">
+                            <a href="" onclick="myfunction_2()"> True or False </a>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row;">
+                        <div style= "display: flex; flex-direction: column;">
+                            <button class="true"> True </button>
+                        </div>
+                        <div>
+                            <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
+                            <span class="time-span"> 15 </span>
+                            </button>
+                        </div>
+                        <div class="right_div" style= "position: absolute; top: 68%; right: 92px; display: flex; flex-direction: column; ">
+                            <button class="false"> False </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <input type="submit" name="add" value="Add">
+                    </div>
+                      
+                </form>
             </div>
-            <div style="display: flex; flex-direction: row;">
-                <div style= "display: flex; flex-direction: column;">
-                    <div style="display: flex; flex-direction: column">
-                        <input class="up_left" type="text" name="quiz[option1]" placeholder=" Option 1 " >
-                        <input type="radio" name="quiz[answer]" value="a" class="check-box" style="position: absolute; left: 47%; margin-top: 4.15%;">
-                    </div>
-                    <div style="display: flex; flex-direction: column">
-                        <input class="down_left" type="text" name="quiz[option3]" placeholder=" Option 3" >
-                        <input type="radio" name="quiz[answer]" value="c" class="check-box" style="position: absolute; left: 47%; margin-top: 3.25%;">
-                    </div>   
-                </div>
-                <div>
-                    <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
-                    <span class="time-span"> 15 </span>
-                    </button>
-                </div>
-                <div class="right_div" style= "position: absolute; right: 92px; display: flex; flex-direction: column; ">
-                    <div style="display: flex; flex-direction: column">
-                        <input class="up_right" type="text" name="quiz[option2]" placeholder=" Option 2 " >
-                        <input type="radio" name="quiz[answer]" value="b" class="check-box" style="position: absolute; left: 84%; margin-top: 16%;">
-                    </div>
-                    <div style="display: flex; flex-direction: column">
-                        <input class="down_right" type="text" name="quiz[option4]" placeholder=" Option 4 " >
-                        <input type="radio" name="quiz[answer]" value="d" class="check-box" style="position: absolute; left: 84%; margin-top: 13%;">
-                    </div>
-                </div>
-            </div>
-            <button type="submit">save</button>
-        </form>
         </div>
+    </div>  -->
+<!-- Fillup container -->
+
+     <!-- <div id="body_container_2">
+        <div id="container" class="resba">
+            <h2 id="text">Question</h2>
+            <div class="con_div">
+                <form action="/store" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <div class="que">
+                        <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <div>
+                            <button class="time-btn">
+                            <span class="time-span"> 15 </span>
+                            </button>
+                        </div>
+                        <div class="right_div" style= "position: absolute; right: 0px; display: flex; flex-direction: column; ">
+                            <input class="up_type" type="text" name="type_ans" placeholder=" Type your answer " >
+                        </div>
+                   </div>
+                    
+                        <input type="submit" name="Add" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>  -->
+    <!-- Quiz container -->
+    <form action="/store" method="post" id="quiz-form">
+    
+    <div id="body_container_1">
+        
+        <div id="container" class="resba">
+            <div class="time-btn">
+                <input type="number" name="quiz[timer]" class="timer">
+            </div>
+            <!-- <h2 id="text">Question</h2> -->
+            <div class="con_div">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="que">
+                    <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <div style= "display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row">
+                            <span class="opt_C">A</span>
+                            <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " >
+                            <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;">
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <span class="opt_C">B</span>
+                            <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" >
+                            <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                        </div>   
+                        <div style="display: flex; flex-direction: row">
+                            <span class="opt_C">C</span>
+                            <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " >
+                            <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                        </div>
+                        <div style="display: flex; flex-direction: row">
+                            <span class="opt_C">D</span>
+                            <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " >
+                            <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div> 
+    <div style="display: flex; flex-direction: row;">
+        <input class="btn_add" type="submit" name="Add" value="Add">     
     </div>
+    
+</form>
+<div id="save_btn" style="background-color: #24B7C6;">  
+    <form action="">
+        <input type="text" name="heading" class="text_field" placeholder="Untitled">
+        <input type="hidden" name="quesno" class="quesno" value="<%= @questions.ids.length%>"><br><br><br><br><br>
+        <span class="quesno" style="margin-top: 2vw;"> No.of.Question : <%= @questions.ids.length%> </span>
+        <input id="submit_btn" type="submit" value="Done">
+    </form>
 </div> 
 
 </div>
 
+ 
+
+ 
+
 
 <script>
-    function myfunction() {
-       
-        // let btn = document.getElementById("")
-        // for (let i = 1; i < 2; i++) {
-        //     let myDiv = document.getElementById("page_div");
-        //     let button = document.createElement("BUTTON");
-        //     button.innerHTML = "Page" + i;
-        //     myDiv.appendChild(button);
-        // }
+    // fillup
+    function myfunction_1() {
+        event.preventDefault();
+        document.getElementById("body_container_1").style.display = "none";
+        document.getElementById("body_container_2").style.display = "block";
+        document.getElementById("body_container_3").style.display = "none";
     }
+    // trueorfalse
+    function myfunction_2() {
+        document.getElementById("body_container_1").style.display = "none";
+        document.getElementById("body_container_2").style.display = "none";
+        document.getElementById("body_container_3").style.display = "block";
+    }
+    // quiz
+    function myfunction_3() {
+        document.getElementById("body_container_1").style.display = "block";
+        document.getElementById("body_container_2").style.display = "none";
+        document.getElementById("body_container_3").style.display = "none";
+    }
+    
+    // function hide_inp() {
+    //     // let form = document.getElementById('quiz-form');
+    //     document.getElementById('random').style.display = 'none';
+    // }
 </script>
 
 

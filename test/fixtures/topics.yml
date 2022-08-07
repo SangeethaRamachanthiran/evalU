@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text_of_topic: MyString
+  image_of_topic: 
+
+two:
+  text_of_topic: MyString
+  image_of_topic: 

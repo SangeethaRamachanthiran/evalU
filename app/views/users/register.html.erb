@@ -1,8 +1,9 @@
 <style>
     body{
-        background-image: url(<%= asset_path 'register.png' %>);
+        background-color: white;
+        /* background-image: url(<%= asset_path 'register_page_boy.png' %>);
         background-repeat: no-repeat;
-        background-size: 1930px 1000px;
+        background-size: 100vw 100vh; */
         display: flex;
         flex-direction: row;
     }
@@ -11,23 +12,31 @@
         margin-left: 20%;
         padding-top: 5%;
     }
+    ::placeholder{
+        color: rgb(95, 75, 109);;
+    }
 </style>
-<h2 style="margin-left: 120px; font-size: 8rem; margin-top: 10px; font-family: 'Poppins'; color: white;">Register</h2>
-<%# <h1 style="font-size:5vw;">Register</h1> %>
-<div id="div_style">
 
-    <% flash.each do |type, msg| %>
-        <div class = "flash-msg">
-            <%= msg %>
-        </div> 
-    <% end %>
-        <%= form_with(model: @user,  url: "/create", method: "POST") do |form| %>
-        <%= form.text_field :username , :required => true,  id: "myInput", class: "text_box", placeholder: "Enter your username", style: "margin-left: 40px;  margin-top: 40px;" %><br>
-        <%= form.text_field :email_id , :required => true, :pattern => '[^@]+@[^@]+\.[a-z]{2,6}', id: "myInput" ,class: "text_box", placeholder: "Enter your Email id", style: "margin-left: 40px;  margin-top: 40px;" %><br>
-        <%= form.password_field :password , :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Enter your Password", style: "margin-left: 40px;  margin-top: 40px;" %><br>
-        <%= form.text_field :dob , id: "myDueDate", :required => true, class: "text_box", placeholder: "Enter your Date of Birth", onfocus: "(this.type='date')", style: "margin-left: 40px;  margin-top: 40px;" %><br>
-        <p style="margin-left: 12%;">Already have an account <a href="/login"> Log in</a></p><br>
-        <%= form.submit "Submit" , style: "margin-left: 34%; width: 30%; height: 44px; border-radius: 10px; background-color: #61D04B; border-color: #61D04B; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
+<%# <h1 style="font-size:5vw;">Register</h1> %>
+<div style="display: flex; flex-direction: row;">
+<h2 style="margin-left: 5vw; font-size: 3.5rem; margin-top: 4vw; font-family: 'Poppins'; color: rgb(2, 2, 89);">Create Account</h2>
+    <div id="div_style">
+
+        <% flash.each do |type, msg| %>
+            <div class = "flash-msg">
+                <%= msg %>
+            </div> 
         <% end %>
+            <%= form_with(model: @user,  url: "/create", method: "POST") do |form| %>
+            <%= form.text_field :username , :required => true,  id: "myInput", class: "text_box", placeholder: "Enter your username", style: "margin-left: 40px;  margin-top: 40px;" %><br>
+            <%= form.text_field :email_id , :required => true, :pattern => '[^@]+@[^@]+\.[a-z]{2,6}', id: "myInput" ,class: "text_box", placeholder: "Enter your Email id", style: "margin-left: 40px;  margin-top: 40px;" %><br>
+            <%= form.password_field :password , :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Enter your Password", style: "margin-left: 40px;  margin-top: 40px;" %><br>
+            <%= form.text_field :dob , id: "myDueDate", :required => true, class: "text_box", placeholder: "Enter your Date of Birth", onfocus: "(this.type='date')", style: "margin-left: 40px;  margin-top: 40px;" %><br>
+            <p style=" font-family: Poppins; font-size: 1.15rem; text-align: center;">Already have an account <a href="/login"> Log in</a></p><br>
+            <%= form.submit "Submit" , style: "margin-left: 24%; width: 44%; height: 44px; border-radius: 10px; background-color: #2F85CC; border-color: #2F85CC; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
+            <% end %>
+    </div>
+    <div>
+         <%= image_tag 'male_page.png', style: 'height:45vw; width:40vw; margin-left: 10vw; margin-top: 3vw;'%>
+    </div>
 </div>
-        
