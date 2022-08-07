@@ -3,15 +3,15 @@
 # Why I choose this project ?
 ### I like to do something for the academy, which is very helpful for the upcoming students. I have used some assessment apps, when I studied, I have confused to use that kind of application. That why I choose to create a application like CRISP & CLEAR.
 # Features
-### Register - Completed
-### Login - Completed
-### Add question - Completed
-### Store question in user library - Completed
-### List question - Completed
-### Set timer - Completed
-### Add topics - Completed
-### List topics - Completed
-### User Profile
-### Listing question as per topics
-### Report 
+### 1. Register - Completed
+### 2. Login - Completed
+### 3. Add question - Completed
+### 4. Store question in user library - Incomplete(Frontend)
+### 5. List question - Completed
+### 6. Set timer - Incomplete(Frontend)
+### 7. Add topics - Completed
+### 8. List topics - Completed
+### 9. User Profile - Yet to do
+### 10. Listing question as per topics - Yet to do
+### 11. Report - Yet to do
 
