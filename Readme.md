@@ -1,7 +1,9 @@
+# Project name - evalU
 # What is evalU and what we do with that?
 ### evalU is an assessment application which is used to create a question by ourselves and we can play some interesting quiz games when we feel bored. Initially it is only for academy students. 
-# Why I choose this project ?
-### I like to do something for the academy, which is very helpful for the upcoming students. I have use some assessment app, when I was studied, I have confused to use that kind of application. That why I choose to create a application like CRISP & CLEAR.
+
+# Why did I choose evalU ?
+### I like to do something for the academy, which will be useful for the upcoming students. I have used some assessment apps, when I studied, I was confused to use that kind of applications. That why I chose to create an application which can be easily accessed by an user, CRISP & CLEAR.
 # Features
 ### Register - Completed
 ### Login - Completed

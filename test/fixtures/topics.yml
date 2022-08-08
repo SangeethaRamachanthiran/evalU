@@ -2,8 +2,8 @@
 
 one:
   text_of_topic: MyString
-  image_of_topic: 
+  image_of_topic: MyString
 
 two:
   text_of_topic: MyString
-  image_of_topic: 
+  image_of_topic: MyString
