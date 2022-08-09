@@ -1,24 +1,24 @@
 class CreatesController < ApplicationController
   @@test_id = 1
   def quiz
-    @questions = Quiz.all
+    # @questions = Quiz.all
     @save = Quiz.new
     # random_num
+  end
+  def test
+    @questions = Quiz.where(test_id: params[:test_id])
+    render "quiz"
   end
   def save_library
     @questions = Quiz.all
     @save = Quiz.new
   end
-  def fillup
-  end
-  def true_or_false
-  end
+  # def fillup
+  # end
+  # def true_or_false
+  # end
   
   def store
-    p '======================================================='
-    p '======================================================='
-    p '======================================================='
-    p @@test_id
     quiz_details = Quiz.new(quiz_params)
     quiz_details.test_id = @@test_id
     if quiz_details.save
@@ -32,8 +32,6 @@ class CreatesController < ApplicationController
 
   def increase_test_id
     @@test_id+=1
-    # p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # p @@test_id
     redirect_to action: 'add_library',save: heads_params
   end
 

@@ -1,5 +1,25 @@
 class PlaysController < ApplicationController
   def choose
+    # @test = Quiz.find_by(:test_id params[:test_id])
+    @test = Quiz.select(:test_id)
+    @code = AddLibrary.select(:heading)
+    @fig = params[:code]
+      p "----------------++++++++++++++++"
+     p @test
+     p "================================="
+     p @fig
+  end
+  def get
+    
+
+    # if user && user.authenticate(params[:password])
+    #   session[:current_user_id] = user.id
+    #   # flash.now[:notice] = "Logged in successfully"
+    #   redirect_to '/home'
+    # else
+    #   flash.now[:alert] = "Email or password is invalid"
+    #   render "login"
+    # end
   end
   def topics
     @topic_list = Topic.all

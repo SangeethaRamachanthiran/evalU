@@ -241,8 +241,11 @@ body{
     <!-- Quiz container -->
 <div id="main-container">
     <div id ="next_page">
+    <% if @questions %>
         <%= render partial:"quizzes", id: "pagerefer" %>
+    <% end %>
     </div>
+    <% unless @questions %>
     <form action="/store" method="post" id="quiz-form">
     
     <div id="body_container_1">
@@ -285,16 +288,14 @@ body{
     </div> 
     <div style="display: flex; flex-direction: row;">
         <input class="btn_add" type="submit" name="Add" value="Add"> 
-        <button class="btn_clear" onclick = "torefreshpage()"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %></button>    
+        <button class="btn_clear"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %></button>    
     </div>
     </form>
+    <% end %>
 </div>
 
 <script>
-    function torefreshpage() {
-        // render_partial? = false
-        // $("#nextpage").hide(); 
-    }
+    
 
     // fillup
     // function myfunction_1() {
