@@ -13,13 +13,14 @@
         padding-top: 5%;
     }
     ::placeholder{
-        color: rgb(95, 75, 109);;
+        color: #012C3D;
+        font-size: 1vw;
     }
 </style>
 
 <%# <h1 style="font-size:5vw;">Register</h1> %>
 <div style="display: flex; flex-direction: row;">
-<h2 style="margin-left: 5vw; font-size: 3.5rem; margin-top: 4vw; font-family: 'Poppins'; color: rgb(2, 2, 89);">Create Account</h2>
+<h2 style="margin-left: 5vw; font-size: 3.5rem; margin-top: 4vw; font-family: 'Poppins'; color: #012C3D;">Create Account</h2>
     <div id="div_style">
 
         <% flash.each do |type, msg| %>
@@ -33,10 +34,10 @@
             <%= form.password_field :password , :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Enter your Password", style: "margin-left: 40px;  margin-top: 40px;" %><br>
             <%= form.text_field :dob , id: "myDueDate", :required => true, class: "text_box", placeholder: "Enter your Date of Birth", onfocus: "(this.type='date')", style: "margin-left: 40px;  margin-top: 40px;" %><br>
             <p style=" font-family: Poppins; font-size: 1.15rem; text-align: center;">Already have an account <a href="/login"> Log in</a></p><br>
-            <%= form.submit "Submit" , style: "margin-left: 24%; width: 44%; height: 44px; border-radius: 10px; background-color: #2F85CC; border-color: #2F85CC; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
+            <%= form.submit "Submit" , style: "margin-left: 24%; width: 44%; height: 44px; border-radius: 10px; background-color: #F96972; border-color: #F96972; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
             <% end %>
     </div>
     <div>
-         <%= image_tag 'male_page.png', style: 'height:45vw; width:40vw; margin-left: 10vw; margin-top: 3vw;'%>
+         <%= image_tag 'register_male.png', style: 'height:43vw; width:42vw; margin-left: 6vw; margin-top: 2vw; margin-right: -2vw; position: fixed;'%>
     </div>
 </div>

@@ -352,23 +352,21 @@
   font-size: 1.5rem;
   width: 8vw;
   color: white;
+  cursor: pointer;
 }
 .btn_clear{
   font-family: Poppins;
-  border-color: white;
-  background-color: white;
-  margin-top: 3.5vw;
+  border-color: #24B7C6;
+  background-color: #24B7C6;
+  margin-top: 52vw;
   margin-left: 5vw;
   font-size: 2rem;
   width: 8vw;
-  color: #24B7C6;
-}
-.btn_clear:hover{
-  background-color: #6ec9d3;
   color: white;
-  font-weight: 900;
-  border-color: #24B7C6;
+  cursor: pointer; 
+  text-decoration: none;
 }
+
 #body_container_2{
   position: absolute;
   // position: relative;
@@ -483,7 +481,7 @@ body.body_container {
 
 #save_btn{
   width: 35vw;
-  height: 25vw;
+  height: 35vw;
   margin-left: 35vw;
   margin-top: 5vw;
   padding: 10px;
@@ -496,11 +494,23 @@ body.body_container {
   // text-align: center;
   font-size: 1.5vw;
   font-family: Poppins;
-  border-radius: 15px;
+  border-radius: 5px;
   outline: none;
   border-style: none;
   margin-left: 5vw;
   margin-top: 4vw;
+}
+.description_field{
+  width: 25vw;
+  height: 8vw;
+  // text-align: center;
+  font-size: 1.5vw;
+  font-family: Poppins;
+  border-radius: 5px;
+  outline: none;
+  border-style: none;
+  margin-left: 5vw;
+  margin-top: 2vw;
 }
 .quesno{
   margin-left: 10vw;

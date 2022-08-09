@@ -152,20 +152,16 @@ body{
 }
 
 </style>
-<%= render partial:"quizzes" %>
-<div style="display: flex; flex-direction: row; position: fixed;">
-    <%= image_tag 'EVALU.png', id: "logo_evalu"%>
-   
-     <!-- value = "<%= rand 10000..100000 %>" -->
- </div>
-<div class="sidenav">
+
+
+<%# <div class="sidenav">
     <h2 > Types </h2>
             <a href="" onclick="myfunction_3()">Quiz</a>
             <a href="" onclick="myfunction_3()">Fill up</a>
             <a href="" onclick="myfunction_3()">True or false</a>
-            <button class="btn_clear">Save</button>
-</div>
-<div class="main-container">
+            
+</div> %>
+
         <!-- <form action="/save" method="post">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <div class="random">
@@ -243,6 +239,10 @@ body{
         </div>
     </div>  -->
     <!-- Quiz container -->
+<div id="main-container">
+    <div id ="next_page">
+        <%= render partial:"quizzes", id: "pagerefer" %>
+    </div>
     <form action="/store" method="post" id="quiz-form">
     
     <div id="body_container_1">
@@ -251,7 +251,6 @@ body{
             <div class="time-btn">
                 <input type="number" name="quiz[timer]" class="timer">
             </div>
-            <!-- <h2 id="text">Question</h2> -->
             <div class="con_div">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <div class="que">
@@ -285,46 +284,37 @@ body{
         </div>
     </div> 
     <div style="display: flex; flex-direction: row;">
-        <input class="btn_add" type="submit" name="Add" value="Add">     
+        <input class="btn_add" type="submit" name="Add" value="Add"> 
+        <button class="btn_clear" onclick = "torefreshpage()"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %></button>    
     </div>
-    
-</form>
-<div id="save_btn" style="background-color: #24B7C6;">  
-    <form action="">
-        <input type="text" name="heading" class="text_field" placeholder="Untitled">
-        <input type="hidden" name="quesno" class="quesno" value="<%= @questions.ids.length%>"><br><br><br><br><br>
-        <span class="quesno" style="margin-top: 2vw;"> No.of.Question : <%= @questions.ids.length%> </span>
-        <input id="submit_btn" type="submit" value="Done">
     </form>
-</div> 
-
 </div>
 
- 
-
- 
-
-
 <script>
+    function torefreshpage() {
+        // render_partial? = false
+        // $("#nextpage").hide(); 
+    }
+
     // fillup
-    function myfunction_1() {
-        event.preventDefault();
-        document.getElementById("body_container_1").style.display = "none";
-        document.getElementById("body_container_2").style.display = "block";
-        document.getElementById("body_container_3").style.display = "none";
-    }
-    // trueorfalse
-    function myfunction_2() {
-        document.getElementById("body_container_1").style.display = "none";
-        document.getElementById("body_container_2").style.display = "none";
-        document.getElementById("body_container_3").style.display = "block";
-    }
-    // quiz
-    function myfunction_3() {
-        document.getElementById("body_container_1").style.display = "block";
-        document.getElementById("body_container_2").style.display = "none";
-        document.getElementById("body_container_3").style.display = "none";
-    }
+    // function myfunction_1() {
+    //     event.preventDefault();
+    //     document.getElementById("body_container_1").style.display = "none";
+    //     document.getElementById("body_container_2").style.display = "block";
+    //     document.getElementById("body_container_3").style.display = "none";
+    // }
+    // // trueorfalse
+    // function myfunction_2() {
+    //     document.getElementById("body_container_1").style.display = "none";
+    //     document.getElementById("body_container_2").style.display = "none";
+    //     document.getElementById("body_container_3").style.display = "block";
+    // }
+    // // quiz
+    // function myfunction_3() {
+    //     document.getElementById("body_container_1").style.display = "block";
+    //     document.getElementById("body_container_2").style.display = "none";
+    //     document.getElementById("body_container_3").style.display = "none";
+    // }
     
     // function hide_inp() {
     //     // let form = document.getElementById('quiz-form');

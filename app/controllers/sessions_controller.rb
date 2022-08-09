@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   user = User.find_by_email_id(params[:email_id])
   if user && user.authenticate(params[:password])
-     session[:user_id] = user.id
+     session[:user_id] = user
      flash.now[:notice] = "Logged in successfully"
      redirect_to '/home'
    else
@@ -29,8 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    @user_logout = User.find(params[:id])
-    @user_logout.destroy
+    @current_user = nil
     redirect_to '/home'
   end
 end

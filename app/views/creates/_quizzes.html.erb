@@ -56,18 +56,20 @@ body{
 }
 
 </style>
+<div class="main-container">
         <%# <%= render partial:"fillup"%> 
+<div style="display: flex; flex-direction: row; position: fixed;">
+    <%= image_tag 'EVALU.png', id: "logo_evalu",  :style => "margin-top: -6.5vw; width: 10vw; height: 6vh; margin-left: 4vw; " %>
+ </div> 
  <% @questions.each do |record| %>
-  <div style="display: flex; flex-direction: row; position: fixed;">
-    <%= image_tag 'EVALU.png', id: "logo_evalu",  :style => "margin-top: -6.5vw; width: 10vw; height: 6vh; margin-left: 4vw; "%>
- </div>
-<div class="sidenav">
+  
+<%# <div class="sidenav">
     <h2 > Types </h2>
             <a href="" onclick="myfunction_3()">Quiz</a>
             <a href="" onclick="myfunction_3()">Fill up</a>
             <a href="" onclick="myfunction_3()">True or false</a>
-</div>
-<div class="main-container">
+</div> %>
+
             <div id="body_container">
         
                 <div id="container" class="resba">

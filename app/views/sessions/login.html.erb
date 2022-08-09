@@ -1,9 +1,9 @@
 
 <style>
     body{
-        background-image: url(<%= asset_path 'login.png' %>);
+        /* background-image: url(<%= asset_path 'login.png' %>);
         background-repeat: no-repeat;
-        background-size: 100vw 100vh;
+        background-size: 100vw 100vh; */
         display: flex;
         flex-direction: row;
     }
@@ -14,10 +14,10 @@
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.3);
-        font-size: 22px;
-        width: 450px;
-        height: 460px;
-        margin-left: 100px;
+        font-size: 1.3vw;
+        width: 24vw;
+        height: 24vw;
+        margin-left: 0vw;
         margin-top: 200px;
         padding: 30px;
         font-family: 'Poppins';
@@ -37,19 +37,29 @@
         margin-left: 10%;
         padding-top: 5%;
     }
+    ::placeholder{
+        color: #012C3D;
+        font-size: 1vw;
+    }
 </style>
- <h2 style="margin-left: 170px; font-size: 10rem; margin-top: 10px; font-family: 'Poppins'; color: white; font-weight: 1000px;">Log in</h2>
-<div id="div_style">
+<div style="display: flex; flex-direction: row;"> 
+      <div style="display: flex; flex-direction: row;" >
+         <%= image_tag 'login_girl.png', style: 'height:44.3vw; width:40vw; margin-left: 0vw; margin-top: 1vw;'%>
+         <h2 style="margin-left: 0vw; font-size: 3.5rem; margin-top: 2vw; font-family: 'Poppins'; color: #012C3D;">Log In</h2>
+    </div>
+    
+    <div id="div_style">
+        <% flash.each do |type, msg| %>
+            <div class = "flash-msg">
+                <%= msg %>
+            </div>
+        <% end %>
+        <%= form_with(model: @log,  url: sessions_path, method: "POST") do |form| %>
+            <%= form.text_field :email_id, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', id: "myInput" ,class: "text_box", placeholder: "Your registered Email id", style: "margin-left: 10%;  margin-top: 70px;"%><br>
+            <%= form.password_field :password, :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Your registered Password", style: "margin-left: 45px;" %><br>
+            <p style="margin-left: 80px; margin-top: 40px;">Need an account <a href="/register">Register</a></p><br>
+            <%= form.submit "Submit" , style: "margin-left: 150px; width: 30%; height: 40px; border-radius: 10px; background-color: #F96972; border-color: #F96972; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
+        <% end %>
+    </div>
    
-    <% flash.each do |type, msg| %>
-        <div class = "flash-msg">
-            <%= msg %>
-        </div>
-    <% end %>
-    <%= form_with(model: @log,  url: sessions_path, method: "POST") do |form| %>
-        <%= form.text_field :email_id, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}', id: "myInput" ,class: "text_box", placeholder: "Your registered Email id", style: "margin-left: 10%;  margin-top: 70px;"%><br>
-        <%= form.password_field :password, :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Your registered Password", style: "margin-left: 45px;" %><br>
-        <p style="margin-left: 80px; margin-top: 40px">Need an account <a href="/register">Register</a></p><br>
-        <%= form.submit "Submit" , style: "margin-left: 150px; width: 30%; height: 40px; border-radius: 10px; background-color: #61D04B; border-color: #61D04B; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
-    <% end %>
 </div>

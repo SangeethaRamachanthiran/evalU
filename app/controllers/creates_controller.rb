@@ -1,7 +1,13 @@
 class CreatesController < ApplicationController
+  @@test_id = 1
   def quiz
     @questions = Quiz.all
+    @save = Quiz.new
     # random_num
+  end
+  def save_library
+    @questions = Quiz.all
+    @save = Quiz.new
   end
   def fillup
   end
@@ -9,7 +15,12 @@ class CreatesController < ApplicationController
   end
   
   def store
+    p '======================================================='
+    p '======================================================='
+    p '======================================================='
+    p @@test_id
     quiz_details = Quiz.new(quiz_params)
+    quiz_details.test_id = @@test_id
     if quiz_details.save
       redirect_to '/quiz'
     else  
@@ -19,8 +30,31 @@ class CreatesController < ApplicationController
   
   end
 
+  def increase_test_id
+    @@test_id+=1
+    # p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    # p @@test_id
+    redirect_to action: 'add_library',save: heads_params
+  end
+
+  def add_library
+    library = AddLibrary.new(heads_params)
+    p "================!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p library
+    if library.save
+     redirect_to "/mylibrary"
+    else
+      # render "/quiz"
+      render plain: "fail"
+    end
+  end
+
   private
   def quiz_params
     params.require(:quiz).permit(:question, :optionA, :optionB, :optionC, :optionD, :answer, :timer)
+  end
+
+  def heads_params
+    params.require(:save).permit(:heading, :description, :quesno)
   end
 end

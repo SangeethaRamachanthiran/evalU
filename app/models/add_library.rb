@@ -1,0 +1,2 @@
+class AddLibrary < ApplicationRecord
+end

@@ -1,0 +1,39 @@
+<div>
+    <% @question_id.each do |record| %>
+    <div id="body_container">
+        <div id="container" class="resba">
+            <div class="timer_btn">
+                <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
+            </div>
+            <div class="con_div">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="que" style="display: flex; flex-direction:row;">
+                    <span class="question_id"><%= record.id %></span>
+                    <span class="question_tag"><%= record.question %></span>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <div style= "display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row;">
+                            <div class="opt_A">A</div>
+                                <span class="up_left"><%= record.optionA %></span>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <span class="opt_B">B</span>
+                                <span class="up_right"><%= record.optionB %></span>
+                            </div>   
+                            <div style="display: flex; flex-direction: row;">
+                                <span class="opt_C">C</span>
+                                <span class="down_left"><%= record.optionC %></span>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <span class="opt_D">D</span>
+                                <span class="down_right"><%= record.optionD %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div> 
+ <% end %>
+</div>

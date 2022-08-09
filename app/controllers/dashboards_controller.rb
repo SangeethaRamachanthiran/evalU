@@ -4,9 +4,19 @@ class DashboardsController < ApplicationController
   end
 
   def mylibrary
+    @headings = AddLibrary.all
+    p @headings
   end
 
   def listQuestion
+    @library = AddLibrary.all
+    @question_id = Quiz.all
+    p "@@@@@@@@@@@@@@@@@@@@"
+    p @library.ids
+    p "------------------------------------"
+    # p @question_id.test_id
+    # if (@library.id == @question_id.test_id)
+
   end
 
   def report

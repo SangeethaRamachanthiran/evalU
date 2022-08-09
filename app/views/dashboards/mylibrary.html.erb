@@ -50,18 +50,23 @@
                 <%= image_tag 'triangle.png', id: "tri_id"%>
             </div>
         </div>
-    
+   
         <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">
+        <% @headings.each do |head| %>
+        <a href="/listquestion" style="text-decoration: none;">
             <div class="container">
                 <div style="display: flex; flex-direction: row;">
                     <div>
-                        <h2>Untitled</h2>
-                        <h4>These are the question related to computer fundamentals.</h4>
+                    
+                        <h2><%= head.heading %></h2>
+                        <h4><%= head.description %></h4>
+                   
                     </div>
                     <%= image_tag 'editicon.png', class: 'icon'%>
-                </div>
+                </div>       
             </div>
-            
+        </a>
+        <% end %>  
         </div>
     </div>
 

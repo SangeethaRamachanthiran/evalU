@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'
   get '/mylibrary', to: 'dashboards#mylibrary'
   get '/reports', to: 'dashboards#report'
   get '/profile', to: 'dashboards#profile'
+  get '/savetolibrary', to: 'creates#save_library'
+  get "/save", to: 'creates#add_library'
+  post "/finish_quiz", to: "creates#increase_test_id"
   get '/Question', to: 'dashboards#listQuestion'
   get 'add', to: 'dashboards#add_topic'
   post '/added', to: 'dashboards#added'
