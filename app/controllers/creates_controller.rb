@@ -26,6 +26,7 @@ class CreatesController < ApplicationController
 
   def store
     quiz_details = Quiz.new(quiz_params)
+    quiz_details.users_id = session[:current_user_id]
     quiz_details.test_id = @@test_id
     if quiz_details.save
       redirect_to '/quiz'
@@ -42,6 +43,7 @@ class CreatesController < ApplicationController
 
   def add_library
     library = AddLibrary.new(heads_params)
+    library.users_id = session[:current_user_id]
     p '================!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
     p library
     if library.save

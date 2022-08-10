@@ -12,17 +12,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_810_065_100) do
+ActiveRecord::Schema.define(version: 20_220_810_114_715) do
   create_table 'add_libraries', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'heading'
     t.string 'description'
     t.integer 'quesno'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'users_id', null: false
+    t.index ['users_id'], name: 'index_add_libraries_on_users_id'
   end
 
   create_table 'chooses', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
-    t.string 'code'
+    t.string 'text_field'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
@@ -34,27 +36,25 @@ ActiveRecord::Schema.define(version: 20_220_810_065_100) do
     t.string 'optionC'
     t.string 'optionD'
     t.string 'answer'
-    t.integer 'timer'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'timer'
     t.bigint 'test_id'
-  end
-
-  create_table 'topics', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
-    t.string 'text_of_topic'
-    t.string 'image_of_topic'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'users_id', null: false
+    t.index ['users_id'], name: 'index_quizzes_on_users_id'
   end
 
   create_table 'users', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'password_digest'
+    t.date 'dob'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'email_id'
     t.string 'username'
-    t.date 'dob'
     t.index ['email_id'], name: 'index_users_on_email_id', unique: true
     t.index ['username'], name: 'index_users_on_username', unique: true
   end
+
+  add_foreign_key 'add_libraries', 'users', column: 'users_id'
+  add_foreign_key 'quizzes', 'users', column: 'users_id'
 end

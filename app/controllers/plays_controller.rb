@@ -3,24 +3,28 @@
 class PlaysController < ApplicationController
   def choose; end
 
+  def takingtest
+    @questions = Quiz.all
+  end
+
   def get
     @search = Choose.new
-    @choose = Choose.new(params.permit(:code))
+    # @choose = Choose.new(params.permit(:text_field))
 
     # # @choose = params.require(:search).permit(:code)
     # @ques = Quiz.where(test_id: params[:test_id])
-    @code = AddLibrary.select(:heading)
-    if @choose.save || @choose.code == @code
-      redirect_to
-      render plain: true
+    @choose = AddLibrary.find_by_heading(params[:text_field])
+    # @code = AddLibrary.select(:heading)
+    if @choose
+      render plain: 'true'
     else
-      render plain: false
+      render plain: 'false'
     end
     # @fig = params[:code]
     #  p "----------------++++++++++++++++"
-    p @code
-    #  p "================================="
-    #  p @fig
+    # p @code
+    p '================================='
+    p @choose
   end
 
   def topics

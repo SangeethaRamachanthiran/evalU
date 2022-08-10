@@ -9,7 +9,8 @@ class CreateQuizzes < ActiveRecord::Migration[6.1]
       t.string :optionC
       t.string :optionD
       t.string :answer
-      t.integer :timer
+      t.string :timer
+      t.bigint :test_id
 
       t.timestamps
     end
