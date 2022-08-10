@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class AddLibraryTest < ActiveSupport::TestCase
+class ChooseTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlterTopics < ActiveRecord::Migration[6.1]
   def change
     remove_column :topics, :image_of_topic
