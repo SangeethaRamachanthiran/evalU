@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
 
   def mylibrary
     @headings = AddLibrary.all
-    p @headings
+    # p @headings
   end
 
   def listQuestion

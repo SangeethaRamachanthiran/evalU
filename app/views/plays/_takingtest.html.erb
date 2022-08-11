@@ -1,0 +1,39 @@
+<% @head.each do |head| %>
+    <% if @questions %>
+        <% @questions.each do |record| %>
+            <div>
+                <form action="/takingtest/<%= head.heading %>">
+                    <div class="que" style="display: flex; flex-direction:row;">
+                        <span class="question_id"><%= record.id %></span>
+                        <span class="question_tag"><%= record.question %></span>
+                    </div>
+                    <input type="submit" name="enter" id="optA" value="<% record.optionA %>">
+                    <input type="submit" name="enter" id="optB" value="<% record.optionB %>">
+                    <input type="submit" name="enter" id="optC" value="<% record.optionC %>">
+                    <input type="submit" name="enter" id="optD" value="<% record.optionD %>">
+                </form>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+    <div>
+
+    </div>
+
+ <script>
+    let time = document.getElementById("time-span").innerText;
+    const countdownEl = document.getElementById("time-span");
+    setInterval(updateCountdown, 1000);
+    
+    function updateCountdown() {
+        const sec = time % 60;
+        countdownEl.innerHTML = `${sec}`;
+        time--;
+        
+        if (countdownEl.innerHTML == 0) {
+                document.getElementById('time-span').style.display = "none";
+                recognition.abort(); 
+                isListening = false;
+            }
+    }
+ </script>

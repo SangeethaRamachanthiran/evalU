@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'takingtest', to: 'plays#takingtest'
-  post '/quiz/heading', to: 'plays#get'
+  get 'showquestion', to: 'plays#showquestion'
+  get 'testing', to: 'plays#testing'
+  get '/takingtest/:heading', to: 'plays#takingtest'
+  post '/head', to: 'plays#get'
   get 'quiz/:test_id', to: 'creates#test'
+  get '/:username/:heading', to: 'creates#check'
   get '/quiz', to: 'creates#quiz'
   get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'

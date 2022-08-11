@@ -53,8 +53,8 @@
    
         <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">
         <% @headings.each do |head| %>
-        <a href="/quiz/<%= head.id %>" style="text-decoration: none;">
-            <div class="container">
+        <a href="/<%= @current_user.username %>/<%= head.heading %>" style="text-decoration: none;">
+            <div id="contain-/<% head.id %>" class="container">
                 <div style="display: flex; flex-direction: row;">
                     <div>
                     

@@ -3,28 +3,43 @@
 class PlaysController < ApplicationController
   def choose; end
 
+  def showquestion
+    @questions = Quiz.all
+    @head = AddLibrary.all
+  end
+
+  def testing
+    @questions = Quiz.all
+    quest = Quiz.select(:test_id)
+    # @fin = AddLibrary.all
+    # @val = @questions
+
+    # p "9999999999999999999999999999"
+    # p id_lib
+    vall = AddLibrary.all.ids
+    if quest = vall
+      @head = AddLibrary.select { |u| u.id == quest }
+      id_lib = AddLibrary.select(:heading)
+      redirect_to("/takingtest/'#{id_lib}'")
+      # render plain: 'true'
+    else
+      render plain: 'false'
+    end
+  end
+
   def takingtest
     @questions = Quiz.all
   end
 
   def get
     @search = Choose.new
-    # @choose = Choose.new(params.permit(:text_field))
-
-    # # @choose = params.require(:search).permit(:code)
-    # @ques = Quiz.where(test_id: params[:test_id])
     @choose = AddLibrary.find_by_heading(params[:text_field])
-    # @code = AddLibrary.select(:heading)
     if @choose
-      render plain: 'true'
+      redirect_to action: 'testing'
+      # render plain: 'true'
     else
-      render plain: 'false'
+      render '/play'
     end
-    # @fig = params[:code]
-    #  p "----------------++++++++++++++++"
-    # p @code
-    p '================================='
-    p @choose
   end
 
   def topics
