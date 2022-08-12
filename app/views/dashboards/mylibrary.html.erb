@@ -19,8 +19,15 @@
                             Create
                         </a>
                         </li>
-                        <li style="margin-left: 1.5vw;"><%= image_tag 'loggedinuser.png', width: '55vw', height: '55vw'%></li>
-                    </ul>
+                        <li>
+                            <li class="dropdown">
+                                <%= image_tag "loggedinuser.png", height: 50, class: 'dropbtn' %>
+                                <div class="dropdown-content">
+                                <a style="font-size:1vw;"><%= @current_user.email_id %></a>
+                                <a href="/logout"  style="color: red; font-size: 25px;"> Logout </a>
+                                </div>
+                        </li>
+                        </ul>
                 </div>
             </div>
         </div>
@@ -52,8 +59,13 @@
         </div>
    
         <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">
+        <%current_user_id=session[:current_user_id]%>
+        <%current_user=User.find(current_user_id) %>
+            
+        <% if AddLibrary.where(users_id: current_user_id).length != 0%>
+            
         <% @headings.each do |head| %>
-        <a href="/<%= @current_user.username %>/<%= head.heading %>" style="text-decoration: none;">
+        <a href="/show_quiz/<%= head['id']%>" style="text-decoration: none;"> 
             <div id="contain-/<% head.id %>" class="container">
                 <div style="display: flex; flex-direction: row;">
                     <div>
@@ -66,7 +78,10 @@
                 </div>       
             </div>
         </a>
-        <% end %>  
+        <% end %> 
+        <%else%>
+                <h1 class="user_profile">You have not posted yet</h1>
+            <% end %> 
         </div>
     </div>
 

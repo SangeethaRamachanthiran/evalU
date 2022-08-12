@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'showquestion', to: 'plays#showquestion'
+  root 'eval_us#landingpage'
+  post 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
-  get '/takingtest/:heading', to: 'plays#takingtest'
-  post '/head', to: 'plays#get'
+  post '/takingtest', to: 'plays#takingtest'
+  get '/head', to: 'plays#get'
   get 'quiz/:test_id', to: 'creates#test'
-  get '/:username/:heading', to: 'creates#check'
+
+  get '/show_quiz/:test_id', to: 'plays#showquestion', as: :test_id
   get '/quiz', to: 'creates#quiz'
   get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'

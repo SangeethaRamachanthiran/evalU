@@ -1,4 +1,71 @@
-<% if @questions %>
-        <%= render partial:"takingtest", id: "pagerefer" %>
+<style>
+    body{
+        overflow-x: scroll;
+    }
+</style>
+<div id="main-div-container" style="display: flex; flex-direction:row">
+    <div>
+        <% if @cur_quiz %>
+        <% @cur_quiz.each do |record| %>
+            
+            <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
+                <span> <%= record.id %>/<%= @cur_quiz.ids.last %> </span>
+                <form action="/takingtest" method="post" style="display: flex; flex-direction: column;">
+                    <div class="timer_btn">
+                        <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
+                    </div>
+                    <div class="que" style="display: flex; flex-direction:row;">
+                        <span class="question_id"><%= record.id %></span>
+                        <span class="question_tag"><%= record.question %></span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input class="option" type="submit" name="ans[cor_answer]" id="optA" value="<%= record.optionA %>">
+                        <input class="option" type="submit" name="ans[cor_answer]" id="optB" value="<%= record.optionB %>">
+                        <input class="option" type="submit" name="ans[cor_answer]" id="optC" value="<%= record.optionC %>">
+                        <input class="option" type="submit" name="ans[cor_answer]" id="optD" value="<%= record.optionD %>">
+                    </div>
+                </form>
+            </div>
+        <% end %>
     <% end %>
+    <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="right" onclick="plusDivs(1)">&#10095;</button>
     </div>
+</div>
+
+ <script>
+    let time = document.getElementById("time-span").innerText;
+    const countdownEl = document.getElementById("time-span");
+    setInterval(updateCountdown, 1000);
+    
+    function updateCountdown() {
+        const sec = time % 60;
+        countdownEl.innerHTML = `${sec}`;
+        time--;
+        
+        if (countdownEl.innerHTML == 0) {
+                document.getElementById('time-span').style.display = "none";
+                recognition.abort(); 
+                isListening = false;
+                // document.getElementById("clickMe").click();
+            }
+    }
+        let slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+        let i;
+        let x = document.getElementsByClassName("content");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+        }
+ </script>

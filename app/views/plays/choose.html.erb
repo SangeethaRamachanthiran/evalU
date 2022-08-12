@@ -9,16 +9,16 @@
     /* } */
 </style>
 <div style="display: flex; flex-direction: column">
-<%= form_with url: "/head", model:@search, method: "post" do |form| %>
- <%# <form action ="/quiz/test_id:"> %>
+<%# <%= form_with url: "/show_quiz/@cur_quiz", model:@search, method: "post" do |form| %> %>
+ <form action ="/head">
     <div class="contain_code">
          Enter code 
-         <%# <input id="text-box" type="text" name="search[code]"> %>
-         <%= form.text_field :text_field %>
-         <%= form.submit :Enter %>
-         <%# <input id="submit" type="submit" value="Enter"> %>
+         <input id="text-box" type="text" name="search[text_field]">
+         <%# <%= form.text_field :text_field %> %>
+         <%# <%= form.submit :Enter %> %>
+         <input id="submit" type="submit" value="Enter">
          <%# style="background-color: #3F9EED;font-size: 1vw; padding: 5px; font-family: Poppins; border-radius: 15px; border-style: none; margin-top: 14%; height: 42px" %>
     </div>
-    <%# </form> %>
-<% end %>
+    </form>
+<%# <% end %> %>
 </div>

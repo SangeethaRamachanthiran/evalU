@@ -118,39 +118,15 @@
     </div>
 </div>
 
-<button id="add_btn">
+<!-- <button id="add_btn">
   <a href="add" style="text-decoration: none; color: white;">
      add topic 
   </a>
-</button>
+</button> -->
 <div id="content">
-    <% @topic_list.each do |list| %>
-    <div class="container">
-      <img src=" <%= list.image_of_topic %> " alt=" <%= list.text_of_topic %>" class="image_topic">
-      <div class="middle">
-        <div class="name_topic"><%= list.text_of_topic %></div>
-      </div>
-    </div>
-    <% end %>
+    
   
 </div>
 
 </div>
 
-<!-- <script>
-let myArray = [{topic_name: "Sports", image: "<%= asset_path 'image_sport.png' %>"}];
-
-
-    document.getElementById("container").innerHTML = "";
-  let lengthOfArray = myArray.length;
-  for (let i = 0; i < lengthOfArray; i++) {
-    const containerContains =
-      `<div class="topic_container">
-        <% @topic_list.each do |list| %>
-        <img src=" <%= list.image_of_topic %> " alt=" <%= list.text_of_topic %>" class="image_topic">
-        <span class="name_topic"><%= list.text_of_topic %><span>
-        <% end %>
-      </div>`
-    document.getElementById("container").innerHTML += containerContains;
-  }
-</script> -->

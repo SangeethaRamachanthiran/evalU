@@ -13,4 +13,6 @@ class EvalUsController < ApplicationController
     render 'eval_us/index'
     @input_list = User.all
   end
+
+  def landingpage; end
 end

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_810_114_715) do
+ActiveRecord::Schema.define(version: 20_220_811_110_315) do
   create_table 'add_libraries', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'heading'
     t.string 'description'
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20_220_810_114_715) do
     t.string 'text_field'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'correct_answers', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
+    t.string 'cor_answer'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'users_id', null: false
+    t.index ['users_id'], name: 'index_correct_answers_on_users_id'
   end
 
   create_table 'quizzes', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
@@ -56,5 +64,6 @@ ActiveRecord::Schema.define(version: 20_220_810_114_715) do
   end
 
   add_foreign_key 'add_libraries', 'users', column: 'users_id'
+  add_foreign_key 'correct_answers', 'users', column: 'users_id'
   add_foreign_key 'quizzes', 'users', column: 'users_id'
 end
