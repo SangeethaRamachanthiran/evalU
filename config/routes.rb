@@ -2,10 +2,11 @@
 
 Rails.application.routes.draw do
   root 'eval_us#landingpage'
-  post 'showquestion', to: 'plays#showquestion'
+  get 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
   post '/takingtest', to: 'plays#takingtest'
-  get '/head', to: 'plays#get'
+  get '/head', to: 'plays#showquestion'
+  get '/result', to: 'plays#result'
   get 'quiz/:test_id', to: 'creates#test'
 
   get '/show_quiz/:test_id', to: 'plays#showquestion', as: :test_id

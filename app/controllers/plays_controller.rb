@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PlaysController < ApplicationController
+  @@ar = []
   def choose
     show_quiz_id = params[:test_id]
     @cur_quiz = Quiz.where(test_id: show_quiz_id)
@@ -12,8 +13,10 @@ class PlaysController < ApplicationController
   end
 
   def showquestion
-    show_quiz_id = params[:test_id]
-    @cur_quiz = Quiz.where(test_id: show_quiz_id)
+    @@ar.push(params[:text_field]) unless params[:text_field].nil?
+
+    @emp = AddLibrary.where(heading: @@ar)
+    @cur_quiz = Quiz.where(test_id: @emp.ids)
   end
 
   def testing
@@ -33,24 +36,53 @@ class PlaysController < ApplicationController
   def takingtest
     # show_quiz_id = params[:test_id]
     # @cur_quiz = Quiz.where(test_id: show_quiz_id)
-    @answered = CorrectAnswer.new(params.require(:ans).permit(:cor_answer))
-    quiz_details.users_id = session[:current_user_id]
-    render action: 'showquestion' if @answered.save
+    #  @answered = CorrectAnswer.new
+    #  @answered.users_id = current_user.id
+    #  if @answered.save
+    #   redirect_to '/head'
+    #  end
+    @quiz = Quiz.find(params[:id])
+    @answer = @quiz['answer']
+    @cor_answer = params[:cor_answer]
+    case @answer
+    when 'a'
+      @exact_answer = @quiz['optionA']
+    when 'b'
+      @exact_answer = @quiz['optionB']
+    when 'c'
+      @exact_answer = @quiz['optionC']
+    when 'd'
+      @exact_answer = @quiz['optionD']
+    end
+    @result = if @cor_answer.eql?(@exact_answer)
+                CorrectAnswer.create!(
+                  cor_answer: @cor_answer,
+                  users_id: current_user.id,
+                  status: true
+                )
+              else
+                CorrectAnswer.create!(
+                  cor_answer: @cor_answer,
+                  users_id: current_user.id,
+                  status: false
+                )
+              end
+    if @result.save
+      redirect_to '/head'
+    else
+      render plain: 'Failure'
+    end
   end
 
-  def get
-    @search = Choose.new(params.require(:search).permit(:text_field))
-    @choose = AddLibrary.find_by_heading(params[:search][:text_field])
-    @test_quiz = Quiz.select(:test_id)
-    # p "////////////////////////////////"
-    # p
-    # p @test_quiz
-    if @choose.heading == @search.text_field
-      redirect_to "/show_quiz/#{@test_quiz}"
-      # render plain: 'true'
-    else
-      render plain: false
-    end
+  def result
+    @number = 1
+    @get_result = CorrectAnswer.all
+    @get_status = @get_result.select(:status)
+    @get_status_true = @get_result.where('status LIKE ?', 1)
+    p '------------------------'
+    p @get_result
+    p '========================'
+    p @get_status
   end
 
   def topics
@@ -73,4 +105,7 @@ class PlaysController < ApplicationController
   def add_params
     params.require(:topic).permit(:text_of_topic, :image_of_topic)
   end
+  #  def answer_params
+  #     params.require(:ans).permit(:cor_answer)
+  #  end
 end

@@ -20,10 +20,11 @@
                     </div>
                     <div style="display: flex; flex-direction: column;">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                        <input class="option" type="submit" name="ans[cor_answer]" id="optA" value="<%= record.optionA %>">
-                        <input class="option" type="submit" name="ans[cor_answer]" id="optB" value="<%= record.optionB %>">
-                        <input class="option" type="submit" name="ans[cor_answer]" id="optC" value="<%= record.optionC %>">
-                        <input class="option" type="submit" name="ans[cor_answer]" id="optD" value="<%= record.optionD %>">
+                        <input type="hidden" name="id" value="<%= record.id%>">
+                        <input class="option" type="submit" name="cor_answer" id="optA" value="<%= record.optionA %>">
+                        <input class="option" type="submit" name="cor_answer" id="optB" value="<%= record.optionB %>">
+                        <input class="option" type="submit" name="cor_answer" id="optC" value="<%= record.optionC %>">
+                        <input class="option" type="submit" name="cor_answer" id="optD" value="<%= record.optionD %>">
                     </div>
                 </form>
             </div>

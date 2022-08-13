@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_811_110_315) do
+ActiveRecord::Schema.define(version: 20_220_812_065_452) do
   create_table 'add_libraries', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'heading'
     t.string 'description'
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20_220_811_110_315) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'users_id', null: false
+    t.boolean 'status'
     t.index ['users_id'], name: 'index_correct_answers_on_users_id'
   end
 
