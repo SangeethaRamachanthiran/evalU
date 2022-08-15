@@ -5,24 +5,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 #image_div{
-   width: 30%;
+   width: 50%;
    height: auto;
-   margin-left: 10vw;
+   margin-left: 5vw;
+}
+#image{
+    width: 30%;
+    height: auto;
+    margin-left: 7vw;
+}
+#tag_text{
+    font-size: 1.3vw; 
+    color: white; 
+    margin-left: 11vw;
+    margin-top: -4vw;
+    font-family: Poppins;
 }
 #logo_evalu{
     width: 9vw;
     margin-left: 5vw;
-    margin-top: 1.5vw;
+    margin-top: 8vw;
     
+}
+#text_evalu{
+    width: 18vw;
+    margin-left: 2vw;
+    margin-top: -1vw;
+}
+#content{
+    background-color: #24B7C6;
+    margin-top: 6vw;
+    height: 30vw;
 }
 .text_color{
     font-family: Poppins;
     margin-left: 10vw;
-    color: #012C3D;
+    color: white;
     font-size: 4vw;
     // text-align: center;
     padding-top: 8vw;
-    // text-shadow: 2px 2px #2F85CC;
 }
 #fwsa_color{
     font-family: Poppins;
@@ -30,11 +51,12 @@
     position: absolute;
     left: 11%;
     top: 13vw;
-    color: #16a7b7;
+    color: #F96972;
     font-size: 1.5vw;
     
 }
 #btn_style{
+    cursor: pointer;
     font-family: Poppins;
     font-weight: bold;
     font-size: 1.5vw;
@@ -43,8 +65,8 @@
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 11vw;
-    margin-top: -2%;
-    background-color: #24B7C6;
+    margin-top: 1vw;
+    background-color: #F96972;
     color: white;
     width: 10vw;
     height: 5.5vh;
@@ -53,13 +75,13 @@
     padding: 6px;
 }
 ul {
-    padding-left: 55vw;
+    padding-left: 65vw;
     list-style-type: none;
-    // overflow: hidden;
+    // background-color: ;
     padding-top: 3vw;
     margin-top: -2%;
     padding-bottom: 10px;
-    border-color: rgba(0, 0, 0, 0.458);
+    color: #24B7C6;
     position: fixed;
     width: max-content;
     width: 100%;
@@ -71,14 +93,94 @@ ul {
     }   
     
     li a {
+    
     display: block;
-    color: #012C3D;
+    color: #24B7C6;
     font-size: 25px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    // font-weight: 900;
     }
 
     li a:hover{
         font-weight: 900;
+    }
+    .short_note{
+        width: 25vw;
+        margin-left: 8vw;
+        margin-top: 4vw;
+        margin-right: 6vw;
+        text-align: center;
+        
+    }
+    .head{
+        font-family: Poppins;
+        margin-top: 2vw;
+        color: #24B7C6;
+    }
+    #footer{
+        margin-top: 8vw;
+        background-color: whitesmoke;
+        width: 100%;
+        height: 30vw;
+        color: #F96972;   
+    }
+    #footer a{
+        font-family: Poppins;
+        text-decoration: none; 
+        color: #F96972;
+        font-size: 1.3vw;
+        margin-top: 1vw;
+        margin-left: 15vw;
+    }
+    #footer a:hover{
+        font-weight: 900;
+    }
+    #footer_evalu{
+        width: 12vw;
+        margin-top: 7vw;
+        margin-left: 28vw;
+    }
+    .footer_image{
+        width: 4vw;
+        margin-top: 5vw;
+        margin-left: 2vw;
+    }
+    #wrong_symbol{
+        width: 2vw;
+        margin-left: 33vw;
+    }
+    #redirect_page{
+        margin-top: 10vw ;
+        margin-left: 30vw;
+        width: 35vw;
+        height: 20vw;
+        border-radius: 2vw;
+        
+    }
+    #enter_code{
+        width: 35vw;
+        margin-left: 30vw;
+        margin-top: 10vw;
+        height: 20vw;
+        border-radius: 2vw;
+        text-align: center;
+    }
+    #code_id{
+        margin-top: 4vw;
+        width: 15vw;
+        height: 2.5vw;
+        font-size: 1.5vw;
+        border-radius: 15px;
+        color: black
+    }
+    #enter_btn{
+        background-color: #F96972;
+        border-color: #F96972;
+        width: 6vw;
+        font-size: 1.2vw;
+        font-family: Poppins;
+        color: white;
+        margin-top: 3vw;
     }

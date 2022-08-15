@@ -20,7 +20,7 @@
 
 <%# <h1 style="font-size:5vw;">Register</h1> %>
 <div style="display: flex; flex-direction: row;">
-<h2 style="margin-left: 5vw; font-size: 3.5rem; margin-top: 4vw; font-family: 'Poppins'; color: #012C3D;">Create Account</h2>
+<h2 style="margin-left: 5vw; font-size: 3vw; margin-top: 4vw; font-family: 'Poppins'; color: #F96972;">Create Account</h2>
     <div id="div_style">
 
         <% flash.each do |type, msg| %>
@@ -33,11 +33,11 @@
             <%= form.text_field :email_id , :required => true, :pattern => '[^@]+@[^@]+\.[a-z]{2,6}', id: "myInput" ,class: "text_box", placeholder: "Enter your Email id", style: "margin-left: 40px;  margin-top: 40px;" %><br>
             <%= form.password_field :password , :required => true, id: "myInput" ,class: "text_box", minlength: "8", maxlength: "12", placeholder: "Enter your Password", style: "margin-left: 40px;  margin-top: 40px;" %><br>
             <%= form.text_field :dob , id: "myDueDate", :required => true, class: "text_box", placeholder: "Enter your Date of Birth", onfocus: "(this.type='date')", style: "margin-left: 40px;  margin-top: 40px;" %><br>
-            <p style=" font-family: Poppins; font-size: 1.15rem; text-align: center;">Already have an account <a href="/login"> Log in</a></p><br>
+            <p style=" font-family: Poppins; font-size: 1.15rem; text-align: center;">Already have an account <a href="/login" style="color: #F96972;"> Log in</a></p><br>
             <%= form.submit "Submit" , style: "margin-left: 24%; width: 44%; height: 44px; border-radius: 10px; background-color: #F96972; border-color: #F96972; color: white; font-family: 'Poppins'; font-weight: bold; font-size: 25px; " %>
             <% end %>
     </div>
     <div>
-         <%= image_tag 'register_male.png', style: 'height:43vw; width:42vw; margin-left: 6vw; margin-top: 2vw; margin-right: -2vw; position: fixed;'%>
+         <%= image_tag 'register_male.png', style: 'height:43vw; width:42vw; margin-left: 7vw; margin-top: 2vw; margin-right: -0vw; position: fixed;'%>
     </div>
 </div>
