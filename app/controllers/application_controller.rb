@@ -1,11 +1,16 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-    helper_method :current_user
-  def current_user
-	if session[:user_id]
-  	@current_user ||= User.find(session[:user_id])
-	else
-	@current_user = nil
-	end
+  before_action :ensure_user_logged_in
+
+  def ensure_user_logged_in
+    redirect_to '/home' unless current_user
   end
 
+  def current_user
+    return @current_user if @current_user
+
+    current_user_id = session[:current_user_id]
+    @current_user = User.find(current_user_id) if current_user_id
+  end
 end

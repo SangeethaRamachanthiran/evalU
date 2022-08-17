@@ -1,0 +1,10 @@
+<div>
+    <% if @get_status_true %>
+        <span>No.of.Correct Answer : <%= @get_status_true.length %></span>
+        <span>No.of.Wrong Answer : <%= @get_status_false.length %></span>  
+    <% else %>
+        <span>No.of.Correct Answer : 0</span>  
+        <span>No.of.Wrong Answer : 0</span> 
+    <% end %>
+
+</div>

@@ -1,21 +1,40 @@
 <style>
-    /* body{ */
-        /* filter: blur(8px);
-        -webkit-filter: blur(8px); */
-        /* background-image: url(<%= asset_path 'bg_choose.jpg' %>); */
-        /* background-repeat: no-repeat;
-        background-size: 100% 1000px; */
-        
-    /* } */
+     #wrong_symbol{
+        width: 2vw;
+        margin-left: 33vw;
+    }
+     #enter_code{
+        width: 35vw;
+        margin-left: 30vw;
+        margin-top: 10vw;
+        height: 20vw;
+        border-radius: 2vw;
+        text-align: center;
+    }
+    #code_id{
+        margin-top: 4vw;
+        width: 15vw;
+        height: 2.5vw;
+        font-size: 1.5vw;
+        border-radius: 15px;
+        color: black
+    }
+    #enter_btn{
+        background-color: #F96972;
+        border-color: #F96972;
+        width: 6vw;
+        font-size: 1.2vw;
+        font-family: Poppins;
+        color: white;
+        margin-top: 3vw;
+    }
 </style>
-<div style="display: flex; flex-direction: column">
-    <div class="contain_code">
-         Enter code 
-         <input id="text-box" type="text" name="code" placeholder="Eg:65745" style="background-color: #3F9EED;font-size: 1vw; padding: 5px; font-family: Poppins; border-radius: 15px; border-style: none; margin-top: 14%; height: 42px">
-    </div>
-    <a href="/topics">
-    <div class="topic">    
-         Choose your topics    
-    </div>
-    </a>
+<div id="enter_code" style="background-color: #24B7C6;">
+     <a href="/home">
+          <%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %>  
+          </a>
+     <form action ="/head">
+          <input id="code_id" type="text" name="text_field" placeholder= "Enter code"><br>
+          <input id="enter_btn" type="submit" value="Enter">
+     </form>
 </div>

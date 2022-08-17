@@ -2,8 +2,10 @@
 
 one:
   heading: MyString
+  description: MyString
   quesno: 1
 
 two:
   heading: MyString
+  description: MyString
   quesno: 1

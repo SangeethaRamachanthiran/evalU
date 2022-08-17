@@ -1,55 +1,69 @@
+# frozen_string_literal: true
+
 class CreatesController < ApplicationController
   @@test_id = 1
   def quiz
-    @questions = Quiz.all
+    # @questions = Quiz.all
     @save = Quiz.new
     # random_num
   end
+
+  def test
+    @questions = Quiz.where(test_id: params[:test_id])
+    p '==================================='
+    p @questions
+    render 'quiz'
+  end
+
+  def check
+    @ww = AddLibrary.where(heading: params[:heading])
+    @questions = Quiz.where(test_id: params[:test_id])
+    p '????????????????????????????????????????????????????'
+    # redirect_to ''
+  end
+
   def save_library
-    @questions = Quiz.all
+    create_quiz_id = params[:test_id]
+    @questions = Quiz.where(test_id: create_quiz_id)
     @save = Quiz.new
   end
-  def fillup
-  end
-  def true_or_false
-  end
-  
+  # def fillup
+  # end
+  # def true_or_false
+  # end
+
   def store
-    p '======================================================='
-    p '======================================================='
-    p '======================================================='
-    p @@test_id
     quiz_details = Quiz.new(quiz_params)
+    quiz_details.users_id = session[:current_user_id]
     quiz_details.test_id = @@test_id
     if quiz_details.save
+      flash.now[:alert] = 'Question is added'
       redirect_to '/quiz'
-    else  
-      render plain: "Fail"
+    else
+      flash.now[:alert] = 'Question is not added'
+      render '/quiz'
     end
     # random_num
-  
   end
 
   def increase_test_id
-    @@test_id+=1
-    # p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # p @@test_id
-    redirect_to action: 'add_library',save: heads_params
+    # @@test_id += 1
+    redirect_to action: 'add_library', save: heads_params
   end
 
   def add_library
     library = AddLibrary.new(heads_params)
-    p "================!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p library
+    library.users_id = session[:current_user_id]
     if library.save
-     redirect_to "/mylibrary"
+      redirect_to '/quiz'
     else
-      # render "/quiz"
-      render plain: "fail"
+      flash.now[:alert] = 'Your code is already exists'
+      render 'save_library'
     end
   end
 
   private
+
   def quiz_params
     params.require(:quiz).permit(:question, :optionA, :optionB, :optionC, :optionD, :answer, :timer)
   end

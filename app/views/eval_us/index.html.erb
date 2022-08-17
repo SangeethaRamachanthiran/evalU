@@ -1,8 +1,7 @@
-
 <style>
-body {
+  body {
     scroll-behavior: smooth;
-    Overflow-y:scroll;
+    Overflow-y: scroll;
     /* Overflow-x:scroll; */
     background-color: white;
     /* background-image: url(<%= asset_path 'home_bg.png' %>);
@@ -12,97 +11,172 @@ body {
     /* background-attachment: fixed;
     position: center;
     background-position: center center; */
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  font-size: 25px;
-  display: none;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  padding-top: 5%;
-  background-color: white;
-  color: red;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
+  }
 </style>
-<div style="display: flex; flex-direction: row; background-color: white;">
-        <%= image_tag 'EVALU.png', id: "logo_evalu"%>
-    <div>
-      <ul>
-        <li>
-          <a href="/home"> 
-              Home 
-          </a>
-        </li>
-        <li>
-          <a href="#">
-              About
-          </a>
-        </li>
-        <li>
-          <a href="/quiz">
-              Create
-          </a>
-        </li>
-        <li style="font-size: 55%; ">
-          <% if current_user %>
-          <div class="dropdown">
-            <%= image_tag "profile.png", height: 50 %>
-          <div class="dropdown-content">
-            <div style="font-size:25px;" > <%= current_user.email_id %> </div>
-            <div><a href="/logout"  style="color: red; font-size: 25px;"> Logout </a></div> <br>
-          <%# <div> <%= link_to 'Log Out', logout_path %>
-              
-          </div>
-          </div>
-          <% else %>
-            <%= link_to 'Log In', login_path %>
-          <% end %>
-
-          <%# <a href="/login">
-            Login
-          </a> %>
-        </li>
-      </ul>
+<div id="whole_container">
+    <div style=" display: flex; flex-direction: row; background-color: blue;">
+      <div style="margin-top: -6vw; position: fixed; z-index: 100;">
+        <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
+      </div>
+      <div>
+          <ul>
+            <li>
+              <a href="/home">
+                Home
+              </a>
+            </li>
+            <li>
+              <% if @presence==1 %>
+                <a href="/savetolibrary">
+                  Create
+                </a>
+                <% else %>
+                  <a href="#redirect_page" onclick="redirect_page_function()">Create</a>
+                  <% end %>
+                    <%# <a href="/quiz">
+                      Create
+                      </a> %>
+            </li>
+            <li>
+              <% if @presence==1 %>
+                <a href="/explore">
+                  Dashboard
+                </a>
+                <% else %>
+                  <a href="#redirect_page" onclick="redirect_page_function()">Dashboard</a>
+                  <% end %>
+            </li>
+            <li style="font-size: 55%; ">
+              <% if @presence==1 %>
+            <li class="dropdown">
+              <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
+  
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
+                      <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
+                    </div>
+                  </div>
+                </div>
+                <% else %>
+                  <%= link_to 'Log In' , login_path %>
+                <% end %>
+            </li>
+          </ul>
+      </div>
     </div>
+
+    
+    
+    <div id="content" style="display: flex; flex-direction: row;">
+      <div>
+        <!-- <h3 id="fwsa_color" style="top: 13vw;"> FWSA </h3> -->
+        <h2 class="text_color" style="margin-top: 4vw; display: flex; flex-direction: row;">
+          Welcome To  <span style="font-size: 5vw;"><%= image_tag 'WHITE_LOGO.png' , id: "text_evalu" %></span>
+        </h2>
+        <p id="tag_text">ENJOY PLAYING WITH LEARNING</p>
+            <button id="btn_style">
+            <a style="text-decoration: none; color: white;" href="play">
+              USE CODE
+            </a>
+             
+            </button>
+          
+      </div>
+      <div id="image">
+        <%= image_tag 'homepage_image.png', width: '120%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row;">
+      <div class="short_note">
+        <%= image_tag 'Q&A.png', width: '55%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
+        <h2 class="head">Create Your Own Questions</h2>
+        <p>You can create questions for your peers or students to assess them.</p>
+      </div>
+      <div class="short_note">
+        <%= image_tag 'taketest.png', width: '55%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
+        <h2 class="head">Take Test</h2>
+        <p>You can take your test by using the test code</p>
+      </div>
+      <div class="short_note">
+        <%= image_tag 'Analytics.png', width: '45%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
+        <h2 class="head" style="margin-top: 1vw;">Report</h2>
+        <p>Report that helps you to know your performance</p>
+      </div>
+    </div>
+    
+    <div id="footer">
+      <div style="display: flex; flex-direction: column;">
+        <div>
+          <%= image_tag 'EVALU.png' , id: "footer_evalu" %>
+        </div>
+        <div style="display: flex; flex-direction: row; color: #F96972;">
+          <a href="" style="margin-top: 4vw; margin-left: 26vw;">About</a>
+          <a href="" style="margin-top: 4vw;">Feedback</a>
+          <a href="" style="margin-top: 4vw;">Help</a>
+          <a href="" style="margin-top: 4vw;">Contact</a>
+        </div>
+      </div>
+      <div style="margin-left: 35vw;">
+        <%= image_tag 'Insta.png' , class: "footer_image" %>
+        <%= image_tag 'linkedIN.png' , class: "footer_image" %>
+        <%= image_tag 'Utube.png' , class: "footer_image" %>
+        <%= image_tag 'facebook.png' , class: "footer_image" %>
+      </div>
+      <span style="margin-left: 40vw; font-family: Poppins;">Copyright © 2022, EVAL<b>U</b>..! All Rights Reserved.</span>
+    </div> 
 </div>
-<div style="display: flex; flex-direction: row;">
-  <div>
-    <h3 id="fwsa_color"> FWSA </h3>
-    <h2 class="text_color">
-      Assess yourself by <span style="font-size: 5vw;"> <strong> evalU ! </strong></span>
-    </h2>
-    <%# <h3 id="fwsa_color">
-      Let's start your 
-    </h3> %>
-    <button id="btn_style">
-    <a href="play" style="text-decoration: none; color: white;">
-      Lets go
+
+ 
+    <div id="enter_code" style=" background-color: #24B7C6; display: none;">
+      <a href="/home">
+        <%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %>  
       </a>
-    </button>
-  </div>
-  <div id="image_div">
-    <%= image_tag 'akkabg.png', style: 'height:45vw; width:42vw; margin-top: 3vw;'%>
-  </div>
+      <%= form_with url: "/quiz/test_id:" , model:@search do |form| %>  
+        <%= form.text_field :code, id: 'code_id', placeholder: "Enter code" %> <br>
+        <input id="enter_btn" type="submit" value="Enter">
+      <% end %>
+    </div>
+ 
+  
+<div id="redirect_page" style="background-color: #24B7C6; display: none; text-align: center; ">
+  <a href="/home">
+    <%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %>  
+  </a>
+  <span style="color: white; font-size: 1vw; font-family: Poppins; margin-top: 5vw;">You should Log in first,<br> To continue your work in  EVAL<b>U</b></span> <br>
+  <button style="background-color: #F96972; border-color: #F96972; width: 6vw; height: auto; font-size: 1.2vw; padding: 5px; margin-top: 5vw;" > <%= link_to 'Log in' , login_path, style: 'text-decoration: none; color: white;' %></button> 
 </div>
 
-<div>
-    <div id="">
-    </div>
-    <div>
-    </div>
-    <div>
-    </div>
-</div>
+
+<script>
+  function clicked(){
+    document.getElementById("whole_container").style.display = "none";
+    document.getElementById("enter_code").style.display = "block";
+  }
+
+  function redirect_page_function() {
+    event.preventDefault();
+    document.getElementById("whole_container").style.display = "none";
+    document.getElementById("redirect_page").style.display = "block";
+  }
+  
+  function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+ 
+</script>
