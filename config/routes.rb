@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'eval_us#landingpage'
+  root 'eval_us#index'
   get 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
   post '/takingtest', to: 'plays#takingtest'

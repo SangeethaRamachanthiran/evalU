@@ -35,7 +35,7 @@ class PlaysController < ApplicationController
   def takingtest
     @quiz = Quiz.find(params[:id])
     p '-----------------------------------'
-    p params[:id]
+    @id = params[:id]
     @answer = @quiz['answer']
     @cor_answer = params[:cor_answer]
 
@@ -63,7 +63,15 @@ class PlaysController < ApplicationController
                 )
               end
     if @result.save
-      redirect_to '/head'
+      @cur_quiz = Quiz.where('id > ?', @id)
+      @cur_quiz.all.each do |t|
+        @records = t
+      end
+      if @records
+        redirect_to '/head'
+      else
+        redirect_to '/result'
+      end
     else
       render plain: 'Failure'
     end
@@ -74,6 +82,7 @@ class PlaysController < ApplicationController
     @get_result = CorrectAnswer.all
     @get_status = @get_result.select(:status)
     @get_status_true = @get_result.where('status LIKE ?', 1)
+    @get_status_false = @get_result.where('status LIKE ?', 0)
     p '------------------------'
     p @get_result
     p '========================'

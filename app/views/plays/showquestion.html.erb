@@ -50,7 +50,7 @@
 
  <script>
     function color_change_A() {
-        event.preventDefault();
+        // event.preventDefault();
         document.getElementById("optA").style.background = "#24B7C6";
         document.getElementById("optB").style.background = "#a3f6ff3d";
         document.getElementById("optC").style.background = "#a3f6ff3d";
@@ -88,7 +88,7 @@
         
         if (countdownEl.innerHTML == 0) {
                 document.getElementById('time-span').style.display = "none";
-                recognition.abort(); 
+                // recognition.abort(); 
                 isListening = false;
                 
             }

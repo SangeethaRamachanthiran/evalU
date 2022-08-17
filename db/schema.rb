@@ -54,14 +54,12 @@ ActiveRecord::Schema.define(version: 20_220_815_113_644) do
   end
 
   create_table 'users', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
+    t.string 'username'
+    t.string 'email_id'
     t.string 'password_digest'
     t.date 'dob'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'email_id'
-    t.string 'username'
-    t.index ['email_id'], name: 'index_users_on_email_id', unique: true
-    t.index ['username'], name: 'index_users_on_username', unique: true
   end
 
   add_foreign_key 'add_libraries', 'users', column: 'users_id'

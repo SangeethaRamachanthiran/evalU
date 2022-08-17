@@ -271,7 +271,8 @@ body{
     border-width: 1.5vw;
   }
   #details{
-    background-color: #F96972;
+    // background-color: #F96972;
+    color: #24B7C6;
     margin-top: 10vw;
     margin-left: 8vw;
     padding-top: 5vw;
@@ -286,14 +287,14 @@ body{
     margin-top: 2vw;
     margin-left: 4vw;
     font-size: 1.3vw;
-    color: white;
+    font-family: Poppins;
     margin-right: 5vw;
   }
   .label_cls{
     margin-top: 2vw;
     margin-left: 5vw;
     font-size: 1.3vw;
-    color: white;
+    font-family: Poppins;
   }
   #profile_image{
     width: 16vw;
