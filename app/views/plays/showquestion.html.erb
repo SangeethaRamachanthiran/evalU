@@ -9,12 +9,13 @@
     
     
     <div>
-        <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+        <%# <button class="left" onclick="plusDivs(-1)">&#10094;</button> %>
     </div>
     <div>
         <% if @cur_quiz %>
+        
         <% @cur_quiz.each do |record| %>
-             
+             <%= record.question%>
             <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
                 <%# <span> <%= record.id %> 
                 <%# /<%= @cur_quiz.ids.last %>
@@ -41,7 +42,7 @@
     <% end %>       
     </div>
     <div>
-        <button class="right" onclick="plusDivs(1)">&#10095;</button>
+        <%# <button class="right" onclick="plusDivs(1)">&#10095;</button> %>
     </div>
     <div>
          <%= image_tag 'background.png', style: 'height:36vw; width:32vw; margin-left: 2vw; margin-top: 6vw; margin-right: -0vw; position: fixed;'%>

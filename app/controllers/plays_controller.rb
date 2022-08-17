@@ -14,8 +14,8 @@ class PlaysController < ApplicationController
 
   def showquestion
     @@ar.push(params[:text_field]) unless params[:text_field].nil?
-    @emp = AddLibrary.where(heading: @@ar)
-    @cur_quiz = Quiz.where(test_id: @emp.ids)
+    @@emp = AddLibrary.where(heading: @@ar)
+    @cur_quiz = Quiz.where(test_id: @@emp.ids)
   end
 
   def show_quiz
@@ -75,12 +75,12 @@ class PlaysController < ApplicationController
                 )
               end
     if @result.save
-      @cur_quiz = Quiz.where('id > ?', @id)
+      @cur_quiz = Quiz.where('id > ? ', @id.to_i)
       @cur_quiz.all.each do |t|
-        @records = t
+        @record = t
       end
-      if @records
-        redirect_to '/head'
+      if @record
+        render 'showquestion'
       else
         redirect_to '/result'
       end

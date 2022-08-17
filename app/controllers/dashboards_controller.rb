@@ -30,7 +30,13 @@ class DashboardsController < ApplicationController
     # if (@library.id == @question_id.test_id)
   end
 
-  def report; end
+  def report
+    @current_user_id = session[:current_user_id]
+    @current_user = User.find(@current_user_id)
+    @user_report = CorrectAnswer.where(users_id: @current_user_id)
+    p '00000000000000000000000000000'
+    p @user_report
+  end
 
   def profile
     @current_user_id = session[:current_user_id]

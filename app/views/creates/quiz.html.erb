@@ -154,6 +154,7 @@ body{
 
 </style>
 <div>
+
 <div style=" display: flex; flex-direction: row;">
       <div style="margin-top: -6vw; position: fixed;">
         <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
@@ -226,22 +227,22 @@ body{
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">A</span>
                             <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " required>
-                            <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;">
+                            <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">B</span>
                             <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" required>
-                            <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>   
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">C</span>
                             <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " required>
-                            <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">D</span>
                             <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " required>
-                            <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                     </div>
                 </div>
@@ -255,6 +256,10 @@ body{
     </form>
     <% end %>
 </div>
+<%question = Quiz.all%>
+<%question.each do |t|%>
+  <p><%= t.question%></p>
+<%end%>
 </div>
 
 <script>

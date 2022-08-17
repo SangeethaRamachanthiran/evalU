@@ -2,15 +2,8 @@
   body {
     scroll-behavior: smooth;
     Overflow-y: scroll;
-    /* Overflow-x:scroll; */
     background-color: white;
-    /* background-image: url(<%= asset_path 'home_bg.png' %>);
-    background-size: cover;
-    height: 847px; */
     font-family: Poppins;
-    /* background-attachment: fixed;
-    position: center;
-    background-position: center center; */
   }
 </style>
 <div id="whole_container">
@@ -33,9 +26,6 @@
                 <% else %>
                   <a href="#redirect_page" onclick="redirect_page_function()">Create</a>
                   <% end %>
-                    <%# <a href="/quiz">
-                      Create
-                      </a> %>
             </li>
             <li>
               <% if @presence==1 %>

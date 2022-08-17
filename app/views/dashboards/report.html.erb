@@ -68,4 +68,13 @@
             <%= image_tag 'triangle.png', id: "tri_id"%>
         </div>
     </div>
+    <div>
+    <%# <% user = User.find(session[:id])%> 
+      <%= CorrectAnswer.where("users_id = ? AND status = ?" , @current_user,true).count%>
+      <% if @user_report %>
+      <% @user_report.each do |result| %>
+      
+      <% end %>
+      <% end %>
+    </div>
 </div>

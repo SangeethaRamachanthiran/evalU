@@ -48,7 +48,7 @@ class CreatesController < ApplicationController
   end
 
   def increase_test_id
-    @@test_id += 1
+    # @@test_id += 1
     redirect_to action: 'add_library', save: heads_params
   end
 
