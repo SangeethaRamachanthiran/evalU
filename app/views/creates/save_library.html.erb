@@ -1,10 +1,16 @@
 <div id="save_btn" style="background-color: #24B7C6;">  
+ <h2 style="color: white; font-size: 2vw; margin-left: 11vw; font-family: Poppins;">Create Code</h2>
+    <% flash.each do |type, msg| %>
+        <div class = "flash-msg">
+            <%= msg %>
+        </div>
+    <% end %>
     <%= form_with url: "/finish_quiz",model:@save, method: "post" do %>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="text" name="save[heading]" class="text_field" placeholder="Untitled">
+        <input type="text" name="save[heading]" class="text_field" placeholder="Your code">
         <input type="text" name="save[description]" class="description_field" placeholder="Description">
-        <input type="hidden" name="save[quesno]" class="quesno" value="<%= @questions.ids.length%>"><br><br><br><br><br>
-        <%# <span class="quesno" style="margin-top: 2vw;"> No.of.Question : <%= @questions.ids.length%> </span> %>
+        <%# <input type="hidden" name="save[quesno]" class="quesno" value="<%= @questions.ids.length%>
+        <%# "><br><br><br><br><br> %> 
         <input id="submit_btn" type="submit" value="Done">
     <% end %>
 </div> 

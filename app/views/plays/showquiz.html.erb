@@ -1,0 +1,52 @@
+<style>
+    body{
+        overflow-x: scroll;
+    }
+</style>
+<div id="main-div-container" style="display: flex; flex-direction:row">
+    <div>
+        <% if @cur_quiz %>
+        <% @cur_quiz.each do |record| %>
+            
+            <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
+                <span> <%= record.id %>/<%= @cur_quiz.ids.last %> </span>
+                    <div class="timer_btn">
+                        <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
+                    </div>
+                    <div class="que" style="display: flex; flex-direction:row;">
+                        <span class="question_id"><%= record.id %></span>
+                        <span class="question_tag"><%= record.question %></span>
+                    </div>
+                <div style="display: flex; flex-direction: column;">
+                    <span class="option" id="optA"><%= record.optionA %></span>
+                    <span class="option" id="optB"><%= record.optionB %></span>
+                    <span class="option" id="optC"><%= record.optionC %></span>
+                    <span class="option" id="optD"><%= record.optionD %></span>
+                 </div>
+            </div>
+        <% end %>
+    <% end %>
+    <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+        let i;
+        let x = document.getElementsByClassName("content");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+        }
+</script>

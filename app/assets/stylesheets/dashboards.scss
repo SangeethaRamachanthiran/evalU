@@ -270,12 +270,36 @@ body{
     border-color: #24B7C6;
     border-width: 1.5vw;
   }
-
-  #edit_icon{
-    margin-top: 5vw;
-    margin-left: 55vw;
+  #details{
+    background-color: #F96972;
+    margin-top: 10vw;
+    margin-left: 8vw;
+    padding-top: 5vw;
+    border-radius: 3vw;
   }
+
+  // #edit_icon{
+  //   margin-top: 5vw;
+  //   // margin-left: 55vw;
+  // }
   .field_cls{
     margin-top: 2vw;
-    margin-left: 15vw;
+    margin-left: 4vw;
+    font-size: 1.3vw;
+    color: white;
+    margin-right: 5vw;
+  }
+  .label_cls{
+    margin-top: 2vw;
+    margin-left: 5vw;
+    font-size: 1.3vw;
+    color: white;
+  }
+  #profile_image{
+    width: 16vw;
+    margin-top: 1vw;
+    margin-left: 3.5vw;
+    background-color: whitesmoke; 
+    height: 16vw;
+    padding: 10px 10px 10px 10px;
   }

@@ -14,8 +14,8 @@
   }
 </style>
 <div id="whole_container">
-    <div style=" display: flex; flex-direction: row;">
-      <div style="margin-top: -6vw; position: fixed;">
+    <div style=" display: flex; flex-direction: row; background-color: blue;">
+      <div style="margin-top: -6vw; position: fixed; z-index: 100;">
         <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
       </div>
       <div>
@@ -27,7 +27,7 @@
             </li>
             <li>
               <% if @presence==1 %>
-                <a href="/quiz">
+                <a href="/savetolibrary">
                   Create
                 </a>
                 <% else %>
@@ -74,9 +74,12 @@
         <h2 class="text_color" style="margin-top: 4vw; display: flex; flex-direction: row;">
           Welcome To  <span style="font-size: 5vw;"><%= image_tag 'WHITE_LOGO.png' , id: "text_evalu" %></span>
         </h2>
-        <p id="tag_text">ENJOY Playing with GAIN Learning</p>
-            <button id="btn_style" onclick="clicked()">
+        <p id="tag_text">ENJOY PLAYING WITH LEARNING</p>
+            <button id="btn_style">
+            <a style="text-decoration: none; color: white;" href="play">
               USE CODE
+            </a>
+             
             </button>
           
       </div>
@@ -88,31 +91,31 @@
     <div style="display: flex; flex-direction: row;">
       <div class="short_note">
         <%= image_tag 'Q&A.png', width: '55%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
-        <h2 class="head">Create your own questions</h2>
-        <p>You can create questions for your peers or Students to access them.</p>
+        <h2 class="head">Create Your Own Questions</h2>
+        <p>You can create questions for your peers or students to assess them.</p>
       </div>
       <div class="short_note">
         <%= image_tag 'taketest.png', width: '55%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
-        <h2 class="head">Take test</h2>
-        <p>You can take your test by using the code which is your choice of questions taken by your analyst</p>
+        <h2 class="head">Take Test</h2>
+        <p>You can take your test by using the test code</p>
       </div>
       <div class="short_note">
         <%= image_tag 'Analytics.png', width: '45%', height: 'auto', id: 'image_blur', style: 'margin-top: 2.1vw; margin-left: 0vw;  margin-right: 0vw;'%>
-        <h2 class="head" style="margin-top: 1vw;">Insightful Analytics</h2>
-        <p>Reports, that helps you to analyze your performance</p>
+        <h2 class="head" style="margin-top: 1vw;">Report</h2>
+        <p>Report that helps you to know your performance</p>
       </div>
     </div>
     
     <div id="footer">
-      <div style="display: flex; flex-direction: row;">
+      <div style="display: flex; flex-direction: column;">
         <div>
           <%= image_tag 'EVALU.png' , id: "footer_evalu" %>
         </div>
-        <div style="display: flex; flex-direction: column; color: #F96972;">
-          <a href="" style="margin-top: 8vw;">About</a>
-          <a href="">Feedback</a>
-          <a href="">Help</a>
-          <a href="">Contact</a>
+        <div style="display: flex; flex-direction: row; color: #F96972;">
+          <a href="" style="margin-top: 4vw; margin-left: 26vw;">About</a>
+          <a href="" style="margin-top: 4vw;">Feedback</a>
+          <a href="" style="margin-top: 4vw;">Help</a>
+          <a href="" style="margin-top: 4vw;">Contact</a>
         </div>
       </div>
       <div style="margin-left: 35vw;">
@@ -130,7 +133,7 @@
       <a href="/home">
         <%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %>  
       </a>
-      <%= form_with url: "/quiz/test_id:" , model:@search, method: "post" do |form| %>  
+      <%= form_with url: "/quiz/test_id:" , model:@search do |form| %>  
         <%= form.text_field :code, id: 'code_id', placeholder: "Enter code" %> <br>
         <input id="enter_btn" type="submit" value="Enter">
       <% end %>

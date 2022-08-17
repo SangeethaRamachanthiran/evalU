@@ -15,7 +15,8 @@
   }
  
   .timer_quiz{
-    text-align: center;
+    margin-left: 20vw;
+    margin-top: -5vw;
     width: 6vw;
     height: 6vw;
     border-radius: 50vw;
@@ -26,18 +27,17 @@
   .que{
     color: #012C3D;
     position: relative;
-    // width:max-content;
     transition: margin-left .5s;
+    margin-right: 30px;
     padding: 5px;
-    width: 52vw;
+    width: 50vw;
     height: 24vh;
-    margin-left: 6vw;
+    margin-left: 2vw;
     margin-top: 1vw;
     background-color: #02e6ff3d;
     border-style: none;
     opacity: 55%;
     border-radius: 25px;
-    
   }
   .question_id{
     // position: absolute;
@@ -75,23 +75,23 @@
       font-size: 1.5vw;
   }
   .option{
-    width: 35vw;
+    width: 45vw;
     height: 3vw;
     font-size: 1vw;
-    background-color: #afe7ed;
+    background-color: #a3f6ff3d;
+    border-color: #06a6b8;
     margin-top: 1vw;
+    margin-left: 5vw;
   }
   .opt_A{
     font-size: 1.5vw;
     text-align: center;
     color: white;
     background-color: #06a6b8;
-    // position: absolute;
     margin-left: 6.5vw;
     margin-top: 2vw;
     padding: 10px;
     width: 2vw;
-    // height: 4.5vh;
     height: auto;
   }
   .opt_B{
@@ -99,7 +99,6 @@
     text-align: center;
     color: white;
     background-color: #06a6b8;
-    // position: absolute;
     margin-left: 6.5vw;
     margin-top: 2vw;
     padding: 10px;
@@ -172,5 +171,47 @@
 }
 .topic:hover{
     box-shadow: 20px 20px 50px 10px #bf900dbe inset;
+}
+#main_div_container{
+  padding-right: 5vw;
+  width: 60vw;
+  margin-left: 5vw;
+  margin-top: 3vw;
+  
+}
+.content{
+  border-color: #24B7C6;
+  border-width: 1px;
+  // border-style: groove;
+  width: 100%;
+  padding-bottom: 5vw;
+}
+.left{
+  width: 3vw;
+  height: 4vw;
+  margin-top: 24vw;
+  font-size: 1.5vw;
+  background-color: none;
+  border-style: none;
+  cursor:pointer;
+}
+.right{
+  width: 3vw;
+  height: 4vw;
+  margin-top: 24vw;
+  font-size: 1.5vw;
+  background-color: none;
+  border-style: none;
+  cursor: pointer;
+}
+.left:hover{
+  background-color: #24B7C6;
+  border-color: #24B7C6;
+  color: white;
+}
+.right:hover{
+  background-color: #24B7C6;
+  border-color: #24B7C6;
+  color: white;
 }
 

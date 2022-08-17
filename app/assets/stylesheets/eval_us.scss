@@ -25,7 +25,7 @@
     width: 9vw;
     margin-left: 5vw;
     margin-top: 8vw;
-    
+    z-index: 1000;
 }
 #text_evalu{
     width: 18vw;
@@ -75,6 +75,8 @@
     padding: 6px;
 }
 ul {
+    background: white;
+    z-index: 1;
     padding-left: 65vw;
     list-style-type: none;
     // background-color: ;
@@ -117,13 +119,13 @@ ul {
     .head{
         font-family: Poppins;
         margin-top: 2vw;
-        color: #24B7C6;
+        color: #F96972;
     }
     #footer{
         margin-top: 8vw;
         background-color: whitesmoke;
         width: 100%;
-        height: 30vw;
+        height: 25vw;
         color: #F96972;   
     }
     #footer a{
@@ -132,15 +134,15 @@ ul {
         color: #F96972;
         font-size: 1.3vw;
         margin-top: 1vw;
-        margin-left: 15vw;
+        margin-left: 8vw;
     }
     #footer a:hover{
         font-weight: 900;
     }
     #footer_evalu{
         width: 12vw;
-        margin-top: 7vw;
-        margin-left: 28vw;
+        margin-top: 4vw;
+        margin-left: 43vw;
     }
     .footer_image{
         width: 4vw;
@@ -159,28 +161,4 @@ ul {
         border-radius: 2vw;
         
     }
-    #enter_code{
-        width: 35vw;
-        margin-left: 30vw;
-        margin-top: 10vw;
-        height: 20vw;
-        border-radius: 2vw;
-        text-align: center;
-    }
-    #code_id{
-        margin-top: 4vw;
-        width: 15vw;
-        height: 2.5vw;
-        font-size: 1.5vw;
-        border-radius: 15px;
-        color: black
-    }
-    #enter_btn{
-        background-color: #F96972;
-        border-color: #F96972;
-        width: 6vw;
-        font-size: 1.2vw;
-        font-family: Poppins;
-        color: white;
-        margin-top: 3vw;
-    }
+   

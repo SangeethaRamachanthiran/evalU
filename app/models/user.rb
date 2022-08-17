@@ -6,6 +6,7 @@ class User < ApplicationRecord
   #    if VALID_EMAIL_REGEX.fwsa.
   #    elsif
   #    end
+  validates_uniqueness_of :email_id
   validates :username, presence: true, length: { minimum: 3, maximum: 30 },
                        format: { with: /\A[^0-9`!@#$%\^&*+_=]+\z/ }
   validates :email_id, presence: true, length: { minimum: 10, maximum: 255 },

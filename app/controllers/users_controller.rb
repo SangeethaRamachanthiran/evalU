@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     user_details = User.new(users_params)
     if user_details.save
       flash.now[:alert] = 'Successfully registered'
-      redirect_to '/home'
+      redirect_to '/login'
     else
       flash.now[:alert] = 'Not registered'
       render '/register'

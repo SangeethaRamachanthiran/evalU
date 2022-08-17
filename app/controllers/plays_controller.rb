@@ -14,7 +14,6 @@ class PlaysController < ApplicationController
 
   def showquestion
     @@ar.push(params[:text_field]) unless params[:text_field].nil?
-
     @emp = AddLibrary.where(heading: @@ar)
     @cur_quiz = Quiz.where(test_id: @emp.ids)
   end
@@ -34,16 +33,12 @@ class PlaysController < ApplicationController
   end
 
   def takingtest
-    # show_quiz_id = params[:test_id]
-    # @cur_quiz = Quiz.where(test_id: show_quiz_id)
-    #  @answered = CorrectAnswer.new
-    #  @answered.users_id = current_user.id
-    #  if @answered.save
-    #   redirect_to '/head'
-    #  end
     @quiz = Quiz.find(params[:id])
+    p '-----------------------------------'
+    p params[:id]
     @answer = @quiz['answer']
     @cor_answer = params[:cor_answer]
+
     case @answer
     when 'a'
       @exact_answer = @quiz['optionA']

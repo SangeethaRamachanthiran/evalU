@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_812_065_452) do
+ActiveRecord::Schema.define(version: 20_220_815_113_644) do
   create_table 'add_libraries', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'heading'
     t.string 'description'

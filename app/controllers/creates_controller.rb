@@ -23,7 +23,8 @@ class CreatesController < ApplicationController
   end
 
   def save_library
-    @questions = Quiz.all
+    create_quiz_id = params[:test_id]
+    @questions = Quiz.where(test_id: create_quiz_id)
     @save = Quiz.new
   end
   # def fillup
@@ -36,28 +37,28 @@ class CreatesController < ApplicationController
     quiz_details.users_id = session[:current_user_id]
     quiz_details.test_id = @@test_id
     if quiz_details.save
+      flash.now[:alert] = 'Question is added'
       redirect_to '/quiz'
     else
-      render plain: 'Fail'
+      flash.now[:alert] = 'Question is not added'
+      render '/quiz'
     end
     # random_num
   end
 
   def increase_test_id
-    @@test_id += 1
+    # @@test_id += 1
     redirect_to action: 'add_library', save: heads_params
   end
 
   def add_library
     library = AddLibrary.new(heads_params)
     library.users_id = session[:current_user_id]
-    p '================!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    p library
     if library.save
-      redirect_to '/mylibrary'
+      redirect_to '/quiz'
     else
-      # render "/quiz"
-      render plain: 'fail'
+      flash.now[:alert] = 'Your code is already exists'
+      render 'save_library'
     end
   end
 

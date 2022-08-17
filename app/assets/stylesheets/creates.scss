@@ -298,7 +298,7 @@
   font-size: 1.5vw;
   margin-left: 25vw;
   margin-top: -5vw;
-  padding: 5px;
+  padding: 0px;
   border-style: inset;
   border-color: #24B7C6;
   border-width: 1.5vw;
@@ -312,7 +312,7 @@
   font-size: 1.5vw;
   margin-left: 25vw;
   margin-top: -5vw;
-  padding: 20px;
+  padding: 10px;
   border-color: #24B7C6;
   border-width: 30px;
 }
@@ -333,15 +333,12 @@
   border-style: groove;
   border-width: 0.2px;
   position: absolute;
-  // position: relative;
   width: 66vw;
   height: 88vh;
-    // background-image: url(<%= asset_path 'quiz.png' %>);
   display: flex;
   flex-direction: row;
-  margin-left: 24vw;
+  margin-left: 18vw;
   margin-top: 8%;
-  // box-shadow: #B3B3B3 10px 10px 10px;
 }
 .btn_add{
   font-family: Poppins;
@@ -540,7 +537,11 @@ body.body_container {
   color: white; 
   font-weight: 900;
 }
-// @media screen and (max-height: 450px) {
-//   .navbar-side {padding-top: 15px;}
-//   .navbar-side a {font-size: 18px;}
-// }
+.flash-msg{
+  color: #F96972;
+  font-weight: 900;
+  margin-left: 8vw;
+  // padding-top: 3vw;
+  font-family: Poppins;
+  font-size: 1.5vw;
+}

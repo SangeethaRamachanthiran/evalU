@@ -151,95 +151,61 @@ body{
   .sidenav a {font-size: 18px;}
 }
 
+
 </style>
-
-
-<%# <div class="sidenav">
-    <h2 > Types </h2>
-            <a href="" onclick="myfunction_3()">Quiz</a>
-            <a href="" onclick="myfunction_3()">Fill up</a>
-            <a href="" onclick="myfunction_3()">True or false</a>
-            
-</div> %>
-
-        <!-- <form action="/save" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <div class="random">
-                <input id="random" type="text" name="randoms[random_num]">
-            </div>
-        </form> -->
-    <!-- true or false container -->
-    <!-- <div id="body_container_3">
-        <div id="container" class="resba">
-            <h2 id="text">Question</h2>
-            <div class="con_div">
-                <form action="/store" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <div class="que">
-                        <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+<div>
+<div style=" display: flex; flex-direction: row;">
+      <div style="margin-top: -6vw; position: fixed;">
+        <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
+      </div>
+      <div>
+          <ul>
+            <li>
+              <a href="/home">
+                Home
+              </a>
+            </li>
+            <li>
+              <% if @presence==1 %>
+                <a href="/quiz">
+                  Create
+                </a>
+                <% else %>
+                  <a href="#redirect_page" onclick="redirect_page_function()">Create</a>
+                  <% end %>
+                    <%# <a href="/quiz">
+                      Create
+                      </a> %>
+            </li>
+            <li>
+              <% if @presence==1 %>
+                <a href="/explore">
+                  Dashboard
+                </a>
+                <% else %>
+                  <a href="#redirect_page" onclick="redirect_page_function()">Dashboard</a>
+                  <% end %>
+            </li>
+            <li class="dropdown">
+              <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
+  
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
+                      <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
                     </div>
-                    <div style= "position: absolute; top: -2vw; right: 0vw; display: flex; flex-direction: column;">
-                        <div class="quiz_tag">
-                            <a href="" onclick="myfunction_3()"> Quiz </a>
-                        </div>
-                        <div class="fillup_tag">
-                            <a href="" onclick="myfunction_1()"> Fill up </a>
-                        </div>
-                        <div class="tof_tag">
-                            <a href="" onclick="myfunction_2()"> True or False </a>
-                        </div>
-                    </div>
-                    <div style="display: flex; flex-direction: row;">
-                        <div style= "display: flex; flex-direction: column;">
-                            <button class="true"> True </button>
-                        </div>
-                        <div>
-                            <button class="time-btn" onclick="setTimeout(myFunction, 3000);">
-                            <span class="time-span"> 15 </span>
-                            </button>
-                        </div>
-                        <div class="right_div" style= "position: absolute; top: 68%; right: 92px; display: flex; flex-direction: column; ">
-                            <button class="false"> False </button>
-                        </div>
-                    </div>
-                    
-                    <div class="dropdown">
-                        <input type="submit" name="add" value="Add">
-                    </div>
-                      
-                </form>
-            </div>
-        </div>
-    </div>  -->
-<!-- Fillup container -->
-
-     <!-- <div id="body_container_2">
-        <div id="container" class="resba">
-            <h2 id="text">Question</h2>
-            <div class="con_div">
-                <form action="/store" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <div class="que">
-                        <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <div>
-                            <button class="time-btn">
-                            <span class="time-span"> 15 </span>
-                            </button>
-                        </div>
-                        <div class="right_div" style= "position: absolute; right: 0px; display: flex; flex-direction: column; ">
-                            <input class="up_type" type="text" name="type_ans" placeholder=" Type your answer " >
-                        </div>
-                   </div>
-                    
-                        <input type="submit" name="Add" value="Add">
-                </form>
-            </div>
-        </div>
-    </div>  -->
-    <!-- Quiz container -->
+                  </div>
+                </div>
+            </li>
+          </ul>
+      </div>
+    </div>
 <div id="main-container">
+    <% flash.each do |type, msg| %>
+        <div class = "flash-msg">
+            <%= msg %>
+        </div>
+    <% end %>
     <div id ="next_page">
     <% if @questions %>
         <%= render partial:"quizzes", id: "pagerefer" %>
@@ -252,7 +218,7 @@ body{
         
         <div id="container" class="resba">
             <div class="time-btn">
-                <input type="number" name="quiz[timer]" class="timer">
+                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec">
             </div>
             <div class="con_div">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -288,10 +254,12 @@ body{
     </div> 
     <div style="display: flex; flex-direction: row;">
         <input class="btn_add" type="submit" name="Add" value="Add"> 
-        <button class="btn_clear"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %></button>    
+        <%# <button class="btn_clear"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %>
+        <%# </button>     %> 
     </div>
     </form>
     <% end %>
+</div>
 </div>
 
 <script>
