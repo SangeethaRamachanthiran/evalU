@@ -6,9 +6,9 @@
         </div>
     <% end %>
     <%= form_with url: "/finish_quiz",model:@save, method: "post" do %>
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="text" name="save[heading]" class="text_field" placeholder="Your code">
-        <input type="text" name="save[description]" class="description_field" placeholder="Description">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+        <input type="text" name="save[heading]" class="text_field" placeholder="Your code" required pattern= "[A-Za-z0-9]{6}" title= "This field only contain 6 letters or numbers ">
+        <input type="text" name="save[description]" class="description_field" placeholder="Description" required>
         <%# <input type="hidden" name="save[quesno]" class="quesno" value="<%= @questions.ids.length%>
         <%# "><br><br><br><br><br> %> 
         <input id="submit_btn" type="submit" value="Done">

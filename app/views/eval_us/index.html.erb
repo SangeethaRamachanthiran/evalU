@@ -52,7 +52,7 @@
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
   
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="#"><%= @current_user.username %></a>
                       <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
                       <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
                     </div>

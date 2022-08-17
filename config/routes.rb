@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   get '/head', to: 'plays#showquestion'
   get '/result', to: 'plays#result'
   get 'quiz/:test_id', to: 'creates#test'
-
-  get '/show_quiz/:test_id', to: 'plays#showquestion', as: :test_id
+  get '/show_quiz/:test_id', to: 'plays#show_quiz', as: :test_id
   get '/quiz', to: 'creates#quiz'
   get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'
@@ -22,11 +21,7 @@ Rails.application.routes.draw do
   get '/Question', to: 'dashboards#listQuestion'
   get 'add', to: 'dashboards#add_topic'
   post '/added', to: 'dashboards#added'
-  # get '/topics', to: 'plays#topics'
   get 'play', to: 'plays#choose'
-
-  # get '/fill_up', to: 'creates#fillup'
-  # get '/trueOrFalse', to: 'creates#true_or_false'
   get '/home', to: 'eval_us#index'
   get '/register', to: 'users#register'
   post '/create', to: 'users#create'

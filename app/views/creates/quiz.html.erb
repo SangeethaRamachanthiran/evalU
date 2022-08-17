@@ -178,13 +178,9 @@ body{
                       </a> %>
             </li>
             <li>
-              <% if @presence==1 %>
                 <a href="/explore">
                   Dashboard
                 </a>
-                <% else %>
-                  <a href="#redirect_page" onclick="redirect_page_function()">Dashboard</a>
-                  <% end %>
             </li>
             <li class="dropdown">
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
@@ -218,33 +214,33 @@ body{
         
         <div id="container" class="resba">
             <div class="time-btn">
-                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec">
+                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec" required>
             </div>
             <div class="con_div">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <div class="que">
-                    <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                    <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" required>
                 </div>
                 <div style="display: flex; flex-direction: row;">
                     <div style= "display: flex; flex-direction: column;">
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">A</span>
-                            <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " >
+                            <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " required>
                             <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;">
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">B</span>
-                            <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" >
+                            <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" required>
                             <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
                         </div>   
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">C</span>
-                            <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " >
+                            <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " required>
                             <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">D</span>
-                            <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " >
+                            <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " required>
                             <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
                         </div>
                     </div>
@@ -254,8 +250,7 @@ body{
     </div> 
     <div style="display: flex; flex-direction: row;">
         <input class="btn_add" type="submit" name="Add" value="Add"> 
-        <%# <button class="btn_clear"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %>
-        <%# </button>     %> 
+        <button class="btn_clear"> <%= link_to "View", "/show_quiz/:test_id", style: "text-decoration: none; color: white;" %></button>     
     </div>
     </form>
     <% end %>

@@ -37,8 +37,9 @@ class CreatesController < ApplicationController
     quiz_details.users_id = session[:current_user_id]
     quiz_details.test_id = @@test_id
     if quiz_details.save
-      flash.now[:alert] = 'Question is added'
+
       redirect_to '/quiz'
+      flash.now[:notice] = 'Question is added'
     else
       flash.now[:alert] = 'Question is not added'
       render '/quiz'
@@ -47,7 +48,7 @@ class CreatesController < ApplicationController
   end
 
   def increase_test_id
-    # @@test_id += 1
+    @@test_id += 1
     redirect_to action: 'add_library', save: heads_params
   end
 

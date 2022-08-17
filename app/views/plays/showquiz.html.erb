@@ -5,11 +5,10 @@
 </style>
 <div id="main-div-container" style="display: flex; flex-direction:row">
     <div>
-        <% if @cur_quiz %>
-        <% @cur_quiz.each do |record| %>
+        <% if @show_quiz %>
+        <% @show_quiz.each do |record| %>
             
             <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
-                <span> <%= record.id %>/<%= @cur_quiz.ids.last %> </span>
                     <div class="timer_btn">
                         <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
                     </div>
