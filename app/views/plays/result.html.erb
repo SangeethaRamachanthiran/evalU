@@ -1,10 +1,21 @@
-<div>
+
+
+
+<div style="display: flex; flex-direction: row;">
+<h2 style="margin-left: 5vw; font-size: 4vw; margin-top: 4vw; font-family: 'Poppins'; color: #F96972;">Result</h2>
+    <div id="result_container">
+    <span class="user_result">Name : <%= @current_user.username%></span><br><br>
     <% if @get_status_true %>
-        <span>No.of.Correct Answer : <%= @get_status_true.length %></span>
-        <span>No.of.Wrong Answer : <%= @get_status_false.length %></span>  
+        <span class="answer_result">No.of.Correct Answer : <%= @get_status_true.length %></span><br>
+        <span class="answer_result">No.of.Wrong Answer : <%= @get_status_false.length %></span><br>
     <% else %>
-        <span>No.of.Correct Answer : 0</span>  
-        <span>No.of.Wrong Answer : 0</span> 
+        <span class="answer_result">No.of.Correct Answer : 0</span><br>
+        <span class="answer_result">No.of.Wrong Answer : 0</span><br>
     <% end %>
 
 </div>
+    <div>
+         <%= image_tag 'result_out.png', style: 'height:auto; width:64vw; margin-left: -15vw; margin-top: 5vw; margin-right: -0vw; position: fixed;'%>
+    </div>
+</div>
+

@@ -3,7 +3,10 @@
 class CreatesController < ApplicationController
   @@test_id = 1
   def quiz
-    # @questions = Quiz.all
+    @users_ques = @current_user.id
+    @side_ques = Quiz.find_by(users_id: @users_ques)
+    p ']]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]'
+    p @side_ques
     @save = Quiz.new
     # random_num
   end
@@ -37,18 +40,17 @@ class CreatesController < ApplicationController
     quiz_details.users_id = session[:current_user_id]
     quiz_details.test_id = @@test_id
     if quiz_details.save
-
       redirect_to '/quiz'
-      flash.now[:notice] = 'Question is added'
+      # flash.now[:notice] = 'Question is added'
     else
-      flash.now[:alert] = 'Question is not added'
+      # flash.now[:alert] = 'Question is not added'
       render '/quiz'
     end
     # random_num
   end
 
   def increase_test_id
-    # @@test_id += 1
+    @@test_id += 1
     redirect_to action: 'add_library', save: heads_params
   end
 

@@ -37,7 +37,7 @@ body{
 }
 .image_class{
     margin-left: 2vw;
-    margin-top: 4vw;
+    margin-top: 4.3vw;
 }
 .container{
    background-color: #24B7C6; 
@@ -81,6 +81,56 @@ body{
     border-width: 1.5vw;
     display: block;
     text-align: center;
+  }
+  #edit_btn{
+    margin-left: 20vw; 
+    margin-top: 2vw;  
+    background-color: #F96972; 
+    border-color: #F96972; 
+    font-size: 1.5vw; 
+    font-family: Poppins; 
+    padding-bottom: 2vw; 
+    color: white; 
+    width: 5vw; 
+    height: 2vw;
+    cursor: pointer;
+  }
+  #edit_form{
+    margin-top: 10vw ;
+    margin-left: 30vw;
+    width: 35vw;
+    height: 28vw;
+    background-color: #24B7C6;
+    border-radius: 2vw;
+    text-align: center;
+  }
+  .edit_box{
+    font-family: Poppins;
+    width: 20vw;
+    height: 2vw;
+    margin-top: 2vw;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 1.2vw;
+    padding: 5px;
+    text-align: center;
+    
+  }
+  #text_edit{
+    font-family: Poppins;
+    font-size: 2vw;
+    color: white;
+    padding-top: 0vw;
+  }
+  #edit_submit{
+    width: 6vw;
+    font-size: 1.5vw;
+    font-family: Poppins;
+    margin-top: 2vw;
+    background-color: #F96972;
+    border-color: #F96972;
+    color: white;
+    margin-bottom: 2vw;
   }
   .timer{
     width: 5vw;

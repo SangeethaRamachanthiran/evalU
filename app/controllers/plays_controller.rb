@@ -18,15 +18,22 @@ class PlaysController < ApplicationController
     @cur_quiz = Quiz.where(test_id: @@emp.ids)
   end
 
-  def show_quiz
-    # @test_id_params = Quiz.find_by_test_id(params[:id])
-    @show_quiz = Quiz.where(test_id: params[:id])
+  def showquiz
+    @show_quiz = Quiz.where(test_id: params[:test_id])
+    @test_id_params = Quiz.find_by_test_id(params[:id])
+    p '================================================='
+    p @show_quiz
+    p @test_id_params
+  end
+
+  def test_code_id
+    @show_quiz = Quiz.find_by(test_id: params[:test_id])
     p ']]]]]]]]]]]]]]]]]]]]]]]]]]]]]]'
     p params[:id]
     if @show_quiz
-      redirect_to action: 'showquestion'
+      redirect_to action: 'showquiz'
     else
-      render '/mylibrary'
+      redirect_to '/mylibrary'
     end
   end
 

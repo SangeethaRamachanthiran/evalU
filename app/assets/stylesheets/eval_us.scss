@@ -104,7 +104,12 @@ ul {
     text-decoration: none;
     // font-weight: 900;
     }
-
+    .dropbtn{
+        width: 2.1vw;
+        height: 2.3vw;
+        margin-top: 0vw;
+        margin-left: 1vw;
+    }
     li a:hover{
         font-weight: 900;
     }
@@ -150,8 +155,8 @@ ul {
         margin-left: 2vw;
     }
     #wrong_symbol{
-        width: 2vw;
-        margin-left: 33vw;
+        width: 1.5vw;
+        margin-left: 33.5vw;
     }
     #redirect_page{
         margin-top: 10vw ;

@@ -29,7 +29,7 @@
             </li>
             <li>
               <% if @presence==1 %>
-                <a href="/explore">
+                <a href="/mylibrary">
                   Dashboard
                 </a>
                 <% else %>
@@ -66,10 +66,15 @@
         </h2>
         <p id="tag_text">ENJOY PLAYING WITH LEARNING</p>
             <button id="btn_style">
-            <a style="text-decoration: none; color: white;" href="play">
-              USE CODE
-            </a>
-             
+             <% if @presence==1 %>
+                <a style="text-decoration: none; color: white;" href="play">
+                  USE CODE
+                </a>
+                <% else %>
+                <a style="text-decoration: none; color: white;" href="#redirect_page" onclick="redirect_page_function()">
+                  USE CODE
+                </a>
+                  <% end %> 
             </button>
           
       </div>

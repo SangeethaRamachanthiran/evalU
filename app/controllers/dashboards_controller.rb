@@ -46,6 +46,20 @@ class DashboardsController < ApplicationController
     p @current_user
   end
 
+  def edit
+    @edit_details = User.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @user_details = User.find(params[:id])
+    if @user_details.update(params.require(:edit_details).permit(:username, :email_id, :dob))
+      redirect_to '/profile'
+    else
+      render plain: @user_details.errors.full_messages.first
+    end
+  end
+
   def add_topic; end
 
   def added

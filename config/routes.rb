@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'plays/showquiz'
   root 'eval_us#index'
+  get 'users_profile/edit', to: 'dashboards#edit', as: 'edit_profile'
+  get '/edit/:id', to: 'dashboards#update'
   get 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
   post '/takingtest', to: 'plays#takingtest'
   get '/test_code', to: 'plays#showquestion'
   get '/result', to: 'plays#result'
   get 'quiz/:test_id', to: 'creates#test'
-  get '/show_quiz/:test_id', to: 'plays#show_quiz', as: :test_id
+  get '/show_quiz/:test_id', to: 'plays#showquiz', as: :test_id
+  get '/show_quiz', to: 'plays#showquiz'
   get '/quiz', to: 'creates#quiz'
   get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'
