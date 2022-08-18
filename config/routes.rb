@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'plays/showquiz'
   root 'eval_us#index'
+  get 'users_profile/edit', to: 'dashboards#edit', as: 'edit_profile'
+  get '/edit/:id', to: 'dashboards#update'
   get 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
   post '/takingtest', to: 'plays#takingtest'
-  get '/head', to: 'plays#showquestion'
+  get '/test_code', to: 'plays#showquestion'
   get '/result', to: 'plays#result'
   get 'quiz/:test_id', to: 'creates#test'
-
-  get '/show_quiz/:test_id', to: 'plays#showquestion', as: :test_id
+  get '/show_quiz/:test_id', to: 'plays#showquiz', as: :test_id
+  get '/show_quiz', to: 'plays#showquiz'
   get '/quiz', to: 'creates#quiz'
   get '/listQuestion', to: 'dashboards#listQuestion'
   get '/explore', to: 'dashboards#explore'
@@ -22,16 +25,12 @@ Rails.application.routes.draw do
   get '/Question', to: 'dashboards#listQuestion'
   get 'add', to: 'dashboards#add_topic'
   post '/added', to: 'dashboards#added'
-  # get '/topics', to: 'plays#topics'
   get 'play', to: 'plays#choose'
-
-  # get '/fill_up', to: 'creates#fillup'
-  # get '/trueOrFalse', to: 'creates#true_or_false'
   get '/home', to: 'eval_us#index'
   get '/register', to: 'users#register'
   post '/create', to: 'users#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  get 'plays/showquestion'
   resources :users
   resources :sessions, only: %i[login create destroy]
   get 'login', to: 'sessions#login', as: 'login'

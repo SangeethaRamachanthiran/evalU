@@ -1,6 +1,6 @@
 <div id="big_container">
     <div style=" display: flex; flex-direction: row;">
-      <div style="margin-top: -6vw; position: fixed;">
+      <div style="margin-top: -6vw; position: fixed; z-index: 100;">
         <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
       </div>
       <div>
@@ -68,25 +68,25 @@
             </div>
         </div>
    
-        <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">
-            
-            
-        <% @headings.each do |head| %>
-        <a href="/show_quiz/<%= head['id']%>" style="text-decoration: none;"> 
-            <div id="contain-/<% head.id %>" class="container">
-                <div style="display: flex; flex-direction: row;">
-                    <div>
+        <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">   
+          <% @headings.each do |head| %>
+          <a href="/show_quiz/<%= head['id']%>" style="text-decoration: none;"> 
+              <div id="contain-/<% head.id %>" class="container">
+                  <div style="display: flex; flex-direction: row;">
+                      <div>
+                      
+                          <h2><%= head.heading %></h2>
+                          <h4><%= head.description %></h4>
                     
-                        <h2><%= head.heading %></h2>
-                        <h4><%= head.description %></h4>
-                   
-                    </div>
-                    <%= image_tag 'editicon.png', class: 'icon'%>
-                </div>       
-            </div>
-        </a>
-        <% end %>  
+                      </div>
+                      <%= image_tag 'editicon.png', class: 'icon'%>
+                  </div>       
+              </div>
+          </a>
+          <% end %>  
         </div>
     </div>
-
+</div>
+<div>
+  
 </div>

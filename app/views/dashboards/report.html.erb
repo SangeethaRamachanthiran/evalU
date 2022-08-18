@@ -1,6 +1,6 @@
 <div id="big_container">
     <div style=" display: flex; flex-direction: row;">
-      <div style="margin-top: -6vw; position: fixed;">
+      <div style="margin-top: -6vw; position: fixed; z-index: 100;">
         <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
       </div>
       <div>
@@ -67,5 +67,14 @@
         <div>
             <%= image_tag 'triangle.png', id: "tri_id"%>
         </div>
+    </div>
+    <div>
+    <%# <% user = User.find(session[:id])%> 
+      <%= CorrectAnswer.where("users_id = ? AND status = ?" , @current_user,true).count%>
+      <% if @user_report %>
+      <% @user_report.each do |result| %>
+      
+      <% end %>
+      <% end %>
     </div>
 </div>

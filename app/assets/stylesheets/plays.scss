@@ -175,21 +175,23 @@
 #main_div_container{
   padding-right: 5vw;
   width: 60vw;
-  margin-left: 5vw;
-  margin-top: 3vw;
+  margin-left: 7vw;
+  // margin-top: 3vw;
   
 }
 .content{
   border-color: #24B7C6;
   border-width: 1px;
-  // border-style: groove;
+  // margin-left: 15vw;
   width: 100%;
   padding-bottom: 5vw;
+  margin-right: -2vw;
 }
 .left{
   width: 3vw;
   height: 4vw;
   margin-top: 24vw;
+  margin-left: 8vw;
   font-size: 1.5vw;
   background-color: none;
   border-style: none;
@@ -214,4 +216,28 @@
   border-color: #24B7C6;
   color: white;
 }
-
+#result_container{
+  background-color: #24B7C6;
+  margin-top: 14vw ;
+  margin-left: 1vw;
+  width: 35vw;
+  height: 15vw;
+  border-radius: 2vw;
+  text-align: center;
+  padding-top: 8vw;
+}
+.answer_result{
+  font-family: Poppins;
+  font-size: 1.3vw;
+  color: white;
+}
+.user_result{
+  font-family: Poppins;
+  font-size: 1.3vw;
+  color: black;
+  
+}
+#result{
+  font-size: 2.5vw;
+  color: #24B7C6;
+}

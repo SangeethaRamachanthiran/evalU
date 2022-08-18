@@ -30,7 +30,13 @@ class DashboardsController < ApplicationController
     # if (@library.id == @question_id.test_id)
   end
 
-  def report; end
+  def report
+    @current_user_id = session[:current_user_id]
+    @current_user = User.find(@current_user_id)
+    @user_report = CorrectAnswer.where(users_id: @current_user_id)
+    p '00000000000000000000000000000'
+    p @user_report
+  end
 
   def profile
     @current_user_id = session[:current_user_id]
@@ -38,6 +44,20 @@ class DashboardsController < ApplicationController
     p '444444444444444444444444444444444'
     p @current_user_id
     p @current_user
+  end
+
+  def edit
+    @edit_details = User.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @user_details = User.find(params[:id])
+    if @user_details.update(params.require(:edit_details).permit(:username, :email_id, :dob))
+      redirect_to '/profile'
+    else
+      render plain: @user_details.errors.full_messages.first
+    end
   end
 
   def add_topic; end

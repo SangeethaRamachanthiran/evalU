@@ -154,8 +154,9 @@ body{
 
 </style>
 <div>
+
 <div style=" display: flex; flex-direction: row;">
-      <div style="margin-top: -6vw; position: fixed;">
+      <div style="margin-top: -6vw; position: fixed; z-index: 100;">
         <%= image_tag 'EVALU.png' , id: "logo_evalu" %>
       </div>
       <div>
@@ -178,13 +179,9 @@ body{
                       </a> %>
             </li>
             <li>
-              <% if @presence==1 %>
                 <a href="/explore">
                   Dashboard
                 </a>
-                <% else %>
-                  <a href="#redirect_page" onclick="redirect_page_function()">Dashboard</a>
-                  <% end %>
             </li>
             <li class="dropdown">
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
@@ -200,7 +197,18 @@ body{
           </ul>
       </div>
     </div>
-<div id="main-container">
+<div id="main-container" >
+  <div class="sidenavques" style="scroll-behavior: smooth; overflow-y: scroll;">
+  <% if @side_ques %>
+    <%question = Quiz.where(users_id: @current_user.id)%>
+    <%question.each do |t|%>
+      <div class="question_box">
+        <h4>Question <%= t.id%></h4>
+        <p class="quest_side"><%= t.question%></p>
+      </div>
+    <%end%>
+  <%end%>
+       </div>
     <% flash.each do |type, msg| %>
         <div class = "flash-msg">
             <%= msg %>
@@ -212,83 +220,58 @@ body{
     <% end %>
     </div>
     <% unless @questions %>
-    <form action="/store" method="post" id="quiz-form">
+    
     
     <div id="body_container_1">
-        
+      <form action="/store" method="post" >
         <div id="container" class="resba">
             <div class="time-btn">
-                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec">
+                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec" required>
             </div>
             <div class="con_div">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <div class="que">
-                    <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" >
+                <div class="que" style="margin-left: 6.5vw;">
+                    <input class="question_tag" type="text" name="quiz[question]" placeholder=" Write a question ?" required>
                 </div>
                 <div style="display: flex; flex-direction: row;">
                     <div style= "display: flex; flex-direction: column;">
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">A</span>
-                            <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " >
-                            <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;">
+                            <input class="up_left" type="text" name="quiz[optionA]" placeholder=" Option A " required>
+                            <input type="radio" name="quiz[answer]" value="a" class="check-box" style=" margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">B</span>
-                            <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" >
-                            <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input class="down_left" type="text" name="quiz[optionB]" placeholder=" Option B" required>
+                            <input type="radio" name="quiz[answer]" value="b" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>   
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">C</span>
-                            <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " >
-                            <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input class="up_right" type="text" name="quiz[optionC]" placeholder=" Option C " required>
+                            <input type="radio" name="quiz[answer]" value="c" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                         <div style="display: flex; flex-direction: row">
                             <span class="opt_C">D</span>
-                            <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " >
-                            <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;">
+                            <input class="down_right" type="text" name="quiz[optionD]" placeholder=" Option D " required>
+                            <input type="radio" name="quiz[answer]" value="d" class="check-box" style="margin-left: -4vw; margin-top: 2.7vw;" required>
                         </div>
                     </div>
                 </div>
             </div>   
         </div>
+        
     </div> 
     <div style="display: flex; flex-direction: row;">
         <input class="btn_add" type="submit" name="Add" value="Add"> 
-        <%# <button class="btn_clear"> <%= link_to "Save", "/savetolibrary", style: "text-decoration: none; color: white;" %>
-        <%# </button>     %> 
     </div>
-    </form>
+    </form> 
     <% end %>
 </div>
+
 </div>
 
 <script>
-    
-
-    // fillup
-    // function myfunction_1() {
-    //     event.preventDefault();
-    //     document.getElementById("body_container_1").style.display = "none";
-    //     document.getElementById("body_container_2").style.display = "block";
-    //     document.getElementById("body_container_3").style.display = "none";
-    // }
-    // // trueorfalse
-    // function myfunction_2() {
-    //     document.getElementById("body_container_1").style.display = "none";
-    //     document.getElementById("body_container_2").style.display = "none";
-    //     document.getElementById("body_container_3").style.display = "block";
-    // }
-    // // quiz
-    // function myfunction_3() {
-    //     document.getElementById("body_container_1").style.display = "block";
-    //     document.getElementById("body_container_2").style.display = "none";
-    //     document.getElementById("body_container_3").style.display = "none";
-    // }
-    
-    // function hide_inp() {
-    //     // let form = document.getElementById('quiz-form');
-    //     document.getElementById('random').style.display = 'none';
-    // }
+ 
 </script>
 
 

@@ -1,15 +1,21 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     body{
         overflow-x: scroll;
     }
 </style>
+<span id="arrow"><a href="/mylibrary "><%= image_tag 'back.png', width: '75vw'%></a></span>
 <div id="main-div-container" style="display: flex; flex-direction:row">
+    <div style="display: flex; flex-direction: row;">
     <div>
-        <% if @cur_quiz %>
-        <% @cur_quiz.each do |record| %>
+        <%= image_tag 'girl_quiz.png', width: '150%',height: '84%', style: 'margin-top: 5vw;'%>
+    </div>
+    <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+        <% if @show_quiz %>
+        <% @show_quiz.each do |record| %>
             
             <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
-                <span> <%= record.id %>/<%= @cur_quiz.ids.last %> </span>
                     <div class="timer_btn">
                         <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
                     </div>
@@ -26,9 +32,9 @@
             </div>
         <% end %>
     <% end %>
-    <button class="left" onclick="plusDivs(-1)">&#10094;</button>
     <button class="right" onclick="plusDivs(1)">&#10095;</button>
     </div>
+    
 </div>
 
 <script>

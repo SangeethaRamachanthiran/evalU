@@ -14,8 +14,27 @@ class PlaysController < ApplicationController
 
   def showquestion
     @@ar.push(params[:text_field]) unless params[:text_field].nil?
-    @emp = AddLibrary.where(heading: @@ar)
-    @cur_quiz = Quiz.where(test_id: @emp.ids)
+    @@emp = AddLibrary.where(heading: @@ar)
+    @cur_quiz = Quiz.where(test_id: @@emp.ids)
+  end
+
+  def showquiz
+    @show_quiz = Quiz.where(test_id: params[:test_id])
+    @test_id_params = Quiz.find_by_test_id(params[:id])
+    p '================================================='
+    p @show_quiz
+    p @test_id_params
+  end
+
+  def test_code_id
+    @show_quiz = Quiz.find_by(test_id: params[:test_id])
+    p ']]]]]]]]]]]]]]]]]]]]]]]]]]]]]]'
+    p params[:id]
+    if @show_quiz
+      redirect_to action: 'showquiz'
+    else
+      redirect_to '/mylibrary'
+    end
   end
 
   def testing
@@ -63,12 +82,12 @@ class PlaysController < ApplicationController
                 )
               end
     if @result.save
-      @cur_quiz = Quiz.where('id > ?', @id)
+      @cur_quiz = Quiz.where('id > ? ', @id.to_i)
       @cur_quiz.all.each do |t|
-        @records = t
+        @record = t
       end
-      if @records
-        redirect_to '/head'
+      if @record
+        render 'showquestion'
       else
         redirect_to '/result'
       end
