@@ -59,5 +59,7 @@ gem 'dotenv-rails', groups: %i[development test production]
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+# added for chart report
+gem 'chartkick'
 # Newly added for the formatter
 gem 'rubocop', require: false
