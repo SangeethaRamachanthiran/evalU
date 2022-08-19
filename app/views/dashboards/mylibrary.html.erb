@@ -11,19 +11,12 @@
               </a>
             </li>
             <li>
-              <% if @presence==1 %>
-                <a href="/quiz">
+                <a href="/savetolibrary">
                   Create
                 </a>
-                <% else %>
-                  <a href="#redirect_page" onclick="redirect_page_function()">Create</a>
-                  <% end %>
-                    <%# <a href="/quiz">
-                      Create
-                      </a> %>
             </li>
             <li>
-                <a href="/explore">
+                <a href="/mylibrary">
                   Dashboard
                 </a>
             </li>
@@ -67,26 +60,36 @@
                 <%= image_tag 'triangle.png', id: "tri_id"%>
             </div>
         </div>
-   
-        <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">   
-          <% @headings.each do |head| %>
-          <a href="/show_quiz/<%= head['id']%>" style="text-decoration: none;"> 
-              <div id="contain-/<% head.id %>" class="container">
-                  <div style="display: flex; flex-direction: row;">
+        <% if @code_check %>
+          <div style="margin-top: 8vw; margin-left: 6vw; background-color: white;  border-color: #def7f9; border-style:solid;">   
+            <% @headings.each do |head| %>
+              <a href="/show_quiz/<%= head['id']%>" style="text-decoration: none;"> 
+                <div id="contain-/<% head.id %>" class="container">
+                    <div style="display: flex; flex-direction: row;">
                       <div>
-                      
-                          <h2><%= head.heading %></h2>
-                          <h4><%= head.description %></h4>
-                    
+                        <h2><%= head.heading %></h2>
+                        <h4><%= head.description %></h4>
                       </div>
-                      <%= image_tag 'editicon.png', class: 'icon'%>
-                  </div>       
-              </div>
-          </a>
-          <% end %>  
-        </div>
+                      <img src="<%= asset_path('editicon.png') %>" alt="editicon" class="icon" id="icon_<%= head.id %>">
+                    </div>       
+                </div>
+              </a>
+            <% end %>  
+          </div>
+        <% else %>
+          <span id="err_msg_lib">Oops..! you are not created any questions yet</span>
+        <% end %>
     </div>
 </div>
 <div>
   
+</div>
+<div id="code_form" style="display: none;">
+  <a href="/mylibrary"><%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %></a>
+  <h2 id="code_edit">Edit Your Code</h2>
+  <form action="/edit_code/<%= @current_user.id%>">
+    <input class="edit_box" type="text" name="edit_details[username]" value= "<%=@current_user.username%>" > <br>
+    <input class="edit_box" type="text" name="edit_details[email_id]" value= "<%=@current_user.email_id%>" > <br>
+    <input id="edit_submit" type="submit" value= "Save" >
+  </form>
 </div>

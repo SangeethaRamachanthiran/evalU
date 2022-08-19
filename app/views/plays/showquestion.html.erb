@@ -14,18 +14,15 @@
     <div>
         <% if @cur_quiz %>
         
-        <% @cur_quiz.each do |record| %>
-             <%= record.question%>
+        <% @cur_quiz.each_with_index do |record, index| %>
+        <% @number = index + 1%> 
             <div class="content" id="contain_<%= record.id %>" style="margin-top: 6vw;">
-                <%# <span> <%= record.id %> 
-                <%# /<%= @cur_quiz.ids.last %>
-                 <%# </span> %> 
                 <form action="/takingtest" method="post" style="display: flex; flex-direction: column;">
                     <div class="timer_btn">
                         <span class="timer_quiz" id="time-span"><%= record.timer %> </span>
                     </div> 
                     <div class="que" style="display: flex; flex-direction:row;">
-                        <span class="question_id"><%= record.id %></span>
+                        <span class="question_id"><%= @number %></span>
                         <span class="question_tag"><%= record.question %></span>
                     </div>
                     <div style="display: flex; flex-direction: column;">

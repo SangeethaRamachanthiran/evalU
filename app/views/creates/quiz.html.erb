@@ -167,19 +167,12 @@ body{
               </a>
             </li>
             <li>
-              <% if @presence==1 %>
                 <a href="/quiz">
                   Create
                 </a>
-                <% else %>
-                  <a href="#redirect_page" onclick="redirect_page_function()">Create</a>
-                  <% end %>
-                    <%# <a href="/quiz">
-                      Create
-                      </a> %>
             </li>
             <li>
-                <a href="/explore">
+                <a href="/mylibrary">
                   Dashboard
                 </a>
             </li>
@@ -199,16 +192,18 @@ body{
     </div>
 <div id="main-container" >
   <div class="sidenavques" style="scroll-behavior: smooth; overflow-y: scroll;">
-  <% if @side_ques %>
-    <%question = Quiz.where(users_id: @current_user.id)%>
-    <%question.each do |t|%>
-      <div class="question_box">
-        <h4>Question <%= t.id%></h4>
-        <p class="quest_side"><%= t.question%></p>
-      </div>
+    <% if @side_ques %>
+      <%question = Quiz.where(users_id: @current_user.id)%>
+      <%question.each_with_index do |t, n|%>
+        <%@num = n + 1%>
+        <div class="question_box">
+          <button id="edit_<%= t.id%>">Edit</button>
+          <h4>Question <%= @num %></h4>
+          <p class="quest_side"><%= t.question%></p>
+        </div>
+      <%end%>
     <%end%>
-  <%end%>
-       </div>
+  </div>
     <% flash.each do |type, msg| %>
         <div class = "flash-msg">
             <%= msg %>
@@ -226,7 +221,7 @@ body{
       <form action="/store" method="post" >
         <div id="container" class="resba">
             <div class="time-btn">
-                <input type="number" name="quiz[timer]" class="timer" placeholder="Sec" required>
+                <input type="number" name="quiz[timer]" class="timer" min="15" placeholder="Sec" required>
             </div>
             <div class="con_div">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

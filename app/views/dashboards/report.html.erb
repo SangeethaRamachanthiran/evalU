@@ -35,7 +35,7 @@
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
   
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="#"><%= @current_user.username %></a>
                       <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
                       <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
                     </div>
@@ -67,14 +67,24 @@
         <div>
             <%= image_tag 'triangle.png', id: "tri_id"%>
         </div>
+        <div id="piechart" style="margin-left: 15vw; margin-top: 11vw;">
+        <% if @user_check%>
+          <%= pie_chart CorrectAnswer.group(:status).count %><br>
+          <div id="answer_result">
+            <% if @user_report %>
+              <span>No.of.Correct Answer :</span>
+              <%= CorrectAnswer.where("users_id = ? AND status = ?" , @current_user, true).count%><br>
+              <span>No.of.Wrong Answer :</span>
+              <%= CorrectAnswer.where("users_id = ? AND status = ?" , @current_user, false).count%>
+            <% end %>
+          </div>
+        <% else %>
+          <span id="err_msg">Oops...! You are not done anything</span>
+        <% end %><br>
+        
+        </div>
+        
     </div>
-    <div>
-    <%# <% user = User.find(session[:id])%> 
-      <%= CorrectAnswer.where("users_id = ? AND status = ?" , @current_user,true).count%>
-      <% if @user_report %>
-      <% @user_report.each do |result| %>
-      
-      <% end %>
-      <% end %>
-    </div>
+    
+    
 </div>

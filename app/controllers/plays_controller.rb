@@ -99,13 +99,9 @@ class PlaysController < ApplicationController
   def result
     @number = 1
     @get_result = CorrectAnswer.all
-    @get_status = @get_result.select(:status)
     @get_status_true = @get_result.where('status LIKE ?', 1)
     @get_status_false = @get_result.where('status LIKE ?', 0)
-    p '------------------------'
-    p @get_result
-    p '========================'
-    p @get_status
+    @get_user_status = User.find_by(id: @get_result.ids)
   end
 
   def topics

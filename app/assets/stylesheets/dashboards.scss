@@ -47,10 +47,13 @@ body{
    color: white;
    font-family: Poppins;
 }
-.icon{
-    width: 3vw;
-    height: 3vw;
-    margin-left: 25vw;
+
+.icon {
+    z-index: 1;
+    width: 4vw;
+    height: 4vw;
+    position: fixed;
+    margin-left: 48vw;
     margin-top: 1.5vw;
 }
 
@@ -353,4 +356,28 @@ body{
     background-color: whitesmoke; 
     height: 16vw;
     padding: 10px 10px 10px 10px;
+  }
+  #answer_result{
+    margin-left: 3vw;
+    font-size: 1.3vw;
+    font-family: Poppins;
+    margin-top: 4vw;
+  }
+  #err_msg{
+    font-size: 1.3vw;
+    font-family: Poppins;
+    background-color: #24B7C6;
+    padding: 40px;
+    margin-left: 5vw;
+  }
+  #err_msg_lib{
+    font-size: 1.3vw;
+    font-family: Poppins;
+    background-color: #24B7C6;
+    padding-top: 5vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    margin-left: 15vw;
+    margin-top: 15vw;
+    height: 10vw;
   }

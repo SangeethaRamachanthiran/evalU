@@ -7,12 +7,22 @@ class DashboardsController < ApplicationController
   end
 
   def mylibrary
+    @code_check = AddLibrary.find_by(users_id: @current_user.id)
     @headings = AddLibrary.where(users_id: current_user.id)
     @quest = Quiz.all
     @questions = Quiz.select(:test_id)
     p '777777777777777777777777777777777777777777777777777'
-    p @questions
+    p @code_check
     # p @headings
+  end
+
+  def update_code
+    @code_details = AddLibrary.find(params[:id])
+    if @code_details.update(params.require(:edit_details).permit(:username, :email_id, :dob))
+      redirect_to '/profile'
+    else
+      render plain: @user_details.errors.full_messages.first
+    end
   end
 
   def lib
@@ -33,7 +43,9 @@ class DashboardsController < ApplicationController
   def report
     @current_user_id = session[:current_user_id]
     @current_user = User.find(@current_user_id)
+    @user_check = CorrectAnswer.find_by(users_id: @current_user.id)
     @user_report = CorrectAnswer.where(users_id: @current_user_id)
+
     p '00000000000000000000000000000'
     p @user_report
   end

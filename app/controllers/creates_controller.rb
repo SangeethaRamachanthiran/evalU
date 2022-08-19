@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreatesController < ApplicationController
-  @@test_id = 1
+  @@test_id = 0
   def quiz
     @users_ques = @current_user.id
     @side_ques = Quiz.find_by(users_id: @users_ques)
@@ -51,12 +51,14 @@ class CreatesController < ApplicationController
 
   def increase_test_id
     @@test_id += 1
+    p '=================================================='
     redirect_to action: 'add_library', save: heads_params
   end
 
   def add_library
     library = AddLibrary.new(heads_params)
     library.users_id = session[:current_user_id]
+
     if library.save
       redirect_to '/quiz'
     else
