@@ -12,7 +12,7 @@
         <%# <button class="left" onclick="plusDivs(-1)">&#10094;</button> %>
     </div>
     <div>
-        <% if @cur_quiz %>
+        <% if @cur_quiz.size == 1 %>
         
         <% @cur_quiz.each_with_index do |record, index| %>
         <% @number = index + 1%> 
@@ -35,7 +35,11 @@
                     </div>
                 </form>
             </div>
-    <% end %>
+        <% end %>
+        <% else %>
+            <div style="margin-top: 18vw; margin-left: -5vw; margin-right: 5vw;">
+                <span id="err_msg_lib" style="padding-bottom: 5vw;">Oops..! you are not created any questions yet</span>
+            </div>
     <% end %>       
     </div>
     <div>
