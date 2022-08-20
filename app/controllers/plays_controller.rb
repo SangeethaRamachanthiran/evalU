@@ -16,6 +16,8 @@ class PlaysController < ApplicationController
     @@ar.push(params[:text_field]) unless params[:text_field].nil?
     @@emp = AddLibrary.where(heading: @@ar)
     @cur_quiz = Quiz.where(test_id: @@emp.ids)
+    p 'ppppppppppppppppppppppppppppppppppppp'
+    p @@emp
   end
 
   def showquiz
