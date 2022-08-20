@@ -1,0 +1,11 @@
+<div id="edit_form" style="display: block;">
+  <a href="/mylibrary"><%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %></a>
+  <h2 id="text_edit">Edit Your Code</h2>
+  <%@head.each do |head|%>
+  <form model="edit_details" action="/code/<%= head.id %>">
+    <input class="edit_box" type="text" name="edit_details[heading]" value= "<%=head.heading%>" > <br>
+    <input class="edit_box" type="text" name="edit_details[description]" value= "<%=head.description%>" > <br>
+    <input id="edit_submit" type="submit" value= "Save" >
+  </form>
+   <%end%>
+</div> 

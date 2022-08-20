@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'eval_us#index'
   get 'users_profile/edit', to: 'dashboards#edit', as: 'edit_profile'
   get '/edit/:id', to: 'dashboards#update'
+  get '/edit_code/:id', to: 'dashboards#edit_code'
+  get '/code/:id', to: 'dashboards#update_code'
   get 'showquestion', to: 'plays#showquestion'
   get 'testing', to: 'plays#testing'
   post '/takingtest', to: 'plays#takingtest'

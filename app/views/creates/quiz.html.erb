@@ -180,7 +180,7 @@ body{
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
   
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="#"><%= @current_user.username %></a>
                       <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
                       <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
                     </div>
@@ -197,7 +197,6 @@ body{
       <%question.each_with_index do |t, n|%>
         <%@num = n + 1%>
         <div class="question_box">
-          <button id="edit_<%= t.id%>">Edit</button>
           <h4>Question <%= @num %></h4>
           <p class="quest_side"><%= t.question%></p>
         </div>
@@ -216,8 +215,7 @@ body{
     </div>
     <% unless @questions %>
     
-    
-    <div id="body_container_1">
+    <div id="body_container_1" >
       <form action="/store" method="post" >
         <div id="container" class="resba">
             <div class="time-btn">
@@ -264,6 +262,8 @@ body{
 </div>
 
 </div>
+
+
 
 <script>
  
