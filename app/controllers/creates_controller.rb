@@ -30,10 +30,6 @@ class CreatesController < ApplicationController
     @questions = Quiz.where(test_id: create_quiz_id)
     @save = Quiz.new
   end
-  # def fillup
-  # end
-  # def true_or_false
-  # end
 
   def store
     quiz_details = Quiz.new(quiz_params)
@@ -47,6 +43,16 @@ class CreatesController < ApplicationController
       render '/quiz'
     end
     # random_num
+  end
+
+  def edit_quiz
+    @quiz_details = Quiz.find(params[:id])
+    if @quiz_details.update(params.require(:edit_quiz).permit(:question, :optionA, :optionB, :optionC, :optionD,
+                                                              :answer, :timer))
+      redirect_to '/quiz'
+    else
+      render plain: @user_details.errors.full_messages.first
+    end
   end
 
   def increase_test_id

@@ -12,14 +12,18 @@ class DashboardsController < ApplicationController
     @quest = Quiz.all
     @questions = Quiz.select(:test_id)
     p '777777777777777777777777777777777777777777777777777'
-    p @code_check
+    p @headings
     # p @headings
+  end
+
+  def edit_code
+    @head = AddLibrary.where(users_id: current_user.id)
   end
 
   def update_code
     @code_details = AddLibrary.find(params[:id])
-    if @code_details.update(params.require(:edit_details).permit(:username, :email_id, :dob))
-      redirect_to '/profile'
+    if @code_details.update(params.require(:edit_details).permit(:heading, :description))
+      redirect_to '/mylibrary'
     else
       render plain: @user_details.errors.full_messages.first
     end

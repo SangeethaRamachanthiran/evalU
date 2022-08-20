@@ -24,7 +24,7 @@
               <%= image_tag "loggedinuser.png" , height: 50, class: 'dropbtn' %>
   
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#"><%= @current_user.email_id %></a>
+                      <a href="#"><%= @current_user.username %></a>
                       <a href="/profile" style="color: red; font-size: 25px;"> Profile </a>
                       <a href="/logout" style="color: red; font-size: 25px;"> Logout </a>
                     </div>
@@ -67,10 +67,10 @@
                 <div id="contain-/<% head.id %>" class="container">
                     <div style="display: flex; flex-direction: row;">
                       <div>
-                        <h2><%= head.heading %></h2>
-                        <h4><%= head.description %></h4>
+                        <h2 style="color: white;"><%= head.heading %></h2>
+                        <h4 style="color: white;"><%= head.description %></h4>
                       </div>
-                      <img src="<%= asset_path('editicon.png') %>" alt="editicon" class="icon" id="icon_<%= head.id %>">
+                      <a href="edit_code/<%= head.id%>"><img src="<%= asset_path('editicon.png') %>" alt="editicon" class="icon" id="icon_<%= head.id %>"></a>
                     </div>       
                 </div>
               </a>
@@ -84,12 +84,4 @@
 <div>
   
 </div>
-<div id="code_form" style="display: none;">
-  <a href="/mylibrary"><%= image_tag 'wrong_sym.png' , id: "wrong_symbol" %></a>
-  <h2 id="code_edit">Edit Your Code</h2>
-  <form action="/edit_code/<%= @current_user.id%>">
-    <input class="edit_box" type="text" name="edit_details[username]" value= "<%=@current_user.username%>" > <br>
-    <input class="edit_box" type="text" name="edit_details[email_id]" value= "<%=@current_user.email_id%>" > <br>
-    <input id="edit_submit" type="submit" value= "Save" >
-  </form>
-</div>
+ 

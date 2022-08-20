@@ -289,16 +289,16 @@
   border-width: 30px;
 }
 #body_container{
-  border-color: #333;
+  border-color: #eef5f5;
   border-style: groove;
-  border-width: 1px;
-  position: relative;
+  border-width: 0.2px;
+  position: absolute;
   width: 66vw;
   height: 88vh;
   display: flex;
   flex-direction: row;
-  margin-left: 24vw;
-  margin-top: 8%;
+  left: 20vw;
+  top: 10%;
 }
 #body_container_1{
   border-color: #eef5f5;
