@@ -4,21 +4,18 @@
 
 
 # Why did I choose evalU ?
-### I like to do something for the academy, which will be useful for the upcoming students. I have used some assessment apps, when I studied, I was confused to use that kind of applications. That why I chose to create an application which can be easily accessed by an user, CRISP & CLEAR.
-
-# Why I choose this project ?
-### I like to do something for the academy, which is very helpful for the upcoming students. I have used some assessment apps, when I studied, I have confused to use that kind of application. That why I choose to create a application like CRISP & CLEAR.
+### I have used some assessment app before, at that time I was thinking how its working and how they designed. Luckily for my final project, It came to my attention and I was excited to do that. So, that is the reason why I choose EVAL U.
 
 # Features
 ### 1. Register - Completed
 ### 2. Login - Completed
 ### 3. Add question - Completed
-### 4. Store question in user library - Completed(Backend)
-### 5. List question - Completed
-### 6. Set timer - Completed(Backend)
-### 7. Add topics - Completed
-### 8. List topics - Completed
-### 9. User Profile - Yet to do
-### 10. Listing question as per topics - Yet to do
-### 11. Report - Yet to do
+### 4. List question - Completed
+### 5. Create code - Completed
+### 6. Edit code - Completed
+### 7. Taking test - Completed
+### 8. Result - Completed
+### 9. User Profile - Completed
+### 10. Edit Profile - Completed
+### 11. Report - Completed
 
