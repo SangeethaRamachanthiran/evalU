@@ -1,7 +1,6 @@
 # Project name - evalU
-# Dev
 # What is evalU and what we do with that?
-### evalU is an assessment application which is used to create a question by ourselves and we can play some interesting quiz games when we feel bored. Initially it is only for academy students. 
+### It is an assessment application, which is very useful to the students and coaches. Here, both students and coaches can create a question for their respective teams and team members can attend the test when they are free using the code.
 
 
 # Why did I choose evalU ?
