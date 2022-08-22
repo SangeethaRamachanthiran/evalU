@@ -20,5 +20,4 @@
 ### 11. Report - Completed
 
 # EER DIAGRAM
-Eval_U_EER_Diagram.png
-
+![Eval_U_EER_Diagram](https://user-images.githubusercontent.com/93571291/185855343-b5d0f9ea-b5b9-4a5e-afda-e23e4de12553.png)
