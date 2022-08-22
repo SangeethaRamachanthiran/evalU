@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreatesController < ApplicationController
-  @@test_id = 1
+  @@test_id = 0
   def quiz
     @users_ques = @current_user.id
     @side_ques = Quiz.find_by(users_id: @users_ques)
