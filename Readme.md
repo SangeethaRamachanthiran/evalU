@@ -19,3 +19,6 @@
 ### 10. Edit Profile - Completed
 ### 11. Report - Completed
 
+# EER DIAGRAM
+Eval_U_EER_Diagram.png
+
