@@ -12,7 +12,7 @@
         <%# <button class="left" onclick="plusDivs(-1)">&#10094;</button> %>
     </div>
     <div>
-        <% if @cur_quiz.size == 1 %>
+        <% if @cur_quiz %>
         
         <% @cur_quiz.each_with_index do |record, index| %>
         <% @number = index + 1%> 
@@ -36,10 +36,10 @@
                 </form>
             </div>
         <% end %>
-        <% else %>
-            <div style="margin-top: 18vw; margin-left: -5vw; margin-right: 5vw;">
+        <%# <% else %> %>
+            <%# <div style="margin-top: 18vw; margin-left: -5vw; margin-right: 5vw;">
                 <span id="err_msg_lib" style="padding-bottom: 5vw;">Oops..! This code has no questions or the code is expired</span>
-            </div>
+            </div> %>
     <% end %>       
     </div>
     <div>
