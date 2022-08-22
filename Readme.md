@@ -1,9 +1,9 @@
-# Project name - evalU
-# What is evalU and what we do with that?
+# Project name - EVAL U
+# What is EVAL U and what we do with that?
 ### It is an assessment application, which is very useful to the students and coaches. Here, both students and coaches can create a question for their respective teams and team members can attend the test when they are free using the code.
 
 
-# Why did I choose evalU ?
+# Why did I choose EVAL U ?
 ### I have used some assessment app before, at that time I was thinking how its working and how they designed. Luckily for my final project, It came to my attention and I was excited to do that. So, that is the reason why I choose EVAL U.
 
 # Features
