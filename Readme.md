@@ -7,17 +7,17 @@
 ### I have used some assessment app before, at that time I was thinking how its working and how they designed. Luckily for my final project, It came to my attention and I was excited to do that. So, that is the reason why I choose EVAL U.
 
 # Features
-### 1. Register - Completed
-### 2. Login - Completed
-### 3. Add question - Completed
-### 4. List question - Completed
-### 5. Create code - Completed
-### 6. Edit code - Completed
-### 7. Taking test - Completed
-### 8. Result - Completed
-### 9. User Profile - Completed
-### 10. Edit Profile - Completed
-### 11. Report - Completed
+### 1. Register 
+### 2. Login
+### 3. Add question 
+### 4. List question 
+### 5. Create code 
+### 6. Edit code 
+### 7. Taking test 
+### 8. Result 
+### 9. User Profile 
+### 10. Edit Profile 
+### 11. Report 
 
 # EER DIAGRAM
 ![Eval_U_EER_Diagram](https://user-images.githubusercontent.com/93571291/185855343-b5d0f9ea-b5b9-4a5e-afda-e23e4de12553.png)
