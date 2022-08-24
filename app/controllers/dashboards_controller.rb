@@ -69,7 +69,7 @@ class DashboardsController < ApplicationController
 
   def update
     @user_details = User.find(params[:id])
-    if @user_details.update(params.require(:edit_details).permit(:username, :email_id, :dob))
+    if @user_details.update(params.require(:edit_details).permit(:username, :dob))
       redirect_to '/profile'
     else
       render plain: @user_details.errors.full_messages.first

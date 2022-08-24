@@ -7,8 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+// imported for pie chart
 import Chart from 'chart.js/auto';
 import "chartkick/chart.js"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

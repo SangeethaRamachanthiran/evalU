@@ -17,7 +17,7 @@
                   </a>
               </li>
               <li>
-                  <a href="/explore">
+                  <a href="/mylibrary">
                     Dashboard
                   </a>
               </li>
@@ -88,7 +88,7 @@
   <h2 id="text_edit">Edit Profile</h2>
   <form action="/edit/<%= @current_user.id%>">
     <input class="edit_box" type="text" name="edit_details[username]" value= "<%=@current_user.username%>" > <br>
-    <input class="edit_box" type="email" name="edit_details[email_id]" value= "<%=@current_user.email_id%>" > <br>
+    <div class="field_cls" style="background-color: white; width: 21vw; margin-left: 7vw; border-radius: 13px; height: 2.5vw;"> <%= @current_user.email_id %></div>
     <input class="edit_box" type="date" name="edit_details[dob]" value= "<%=@current_user.dob%>" ><br>
     <input id="edit_submit" type="submit" value= "Save" >
   </form>
