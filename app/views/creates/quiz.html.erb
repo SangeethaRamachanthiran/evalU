@@ -192,7 +192,7 @@ body{
     </div>
 <div id="main-container" >
   <div class="sidenavques" style="scroll-behavior: smooth; overflow-y: scroll;">
-    <!-- <% if @side_ques %>
+    <% if @side_ques %>
       <%question = Quiz.where(users_id: @current_user.id)%>
       <%question.each_with_index do |t, n|%>
         <%@num = n + 1%>
@@ -201,7 +201,7 @@ body{
           <p class="quest_side"><%= t.question%></p>
         </div>
       <%end%>
-    <%end%> -->
+    <%end%>
   </div>
     <% flash.each do |type, msg| %>
         <div class = "flash-msg">
