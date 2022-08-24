@@ -9,6 +9,7 @@
         <% if @get_status_true %>
             <span class="answer_result">No.of.Correct Answer : <%= @get_status_true.length %></span><br>
             <span class="answer_result">No.of.Wrong Answer : <%= @get_status_false.length %></span><br>
+            <a href="/reports"><button id="report_btn"> Report </button></a>
         <% else %>
             <span class="answer_result">No.of.Correct Answer : 0</span><br>
             <span class="answer_result">No.of.Wrong Answer : 0</span><br>

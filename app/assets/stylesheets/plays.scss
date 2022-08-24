@@ -241,3 +241,18 @@
   font-size: 2.5vw;
   color: #24B7C6;
 }
+#report_btn{
+  width: 5vw;
+  height: 1.8vw;
+  font-size: 1vw;
+  font-family: Poppins;
+  background-color: white;
+  cursor: pointer;
+  margin-top: 3vw;
+}
+#report_btn:hover{
+  background-color: #24B7C6;
+  color: white;
+  border-color: #24B7C6;
+  font-weight: 900;
+}
