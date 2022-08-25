@@ -4,7 +4,7 @@
 
 
 # Why did I choose EVAL U ?
-### I have used some assessment app before, at that time I was thinking how its working and how they designed. Luckily for my final project, It came to my attention and I was excited to do that. So, that is the reason why I choose EVAL U.
+### I have used some assessment app before, at that time I was thinking how its working and how they designed. Luckily for my final project, It came to my attention and I was excited to do that. So, that is one of the reason why I choose EVAL U.
 
 # Features
 ### 1. Register 
@@ -18,6 +18,12 @@
 ### 9. User Profile 
 ### 10. Edit Profile 
 ### 11. Report 
+
+# Gem used
+### gem 'bcrypt'
+### gem 'rubocop'
+### gem 'chartkick'
+### gem 'dotenv'
 
 # EER DIAGRAM
 ![Eval_U_EER_Diagram](https://user-images.githubusercontent.com/93571291/185855343-b5d0f9ea-b5b9-4a5e-afda-e23e4de12553.png)
