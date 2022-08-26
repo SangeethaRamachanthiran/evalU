@@ -26,4 +26,5 @@
 ### gem 'dotenv'
 
 # EER DIAGRAM
-![Eval_U_EER_Diagram](https://user-images.githubusercontent.com/93571291/185855343-b5d0f9ea-b5b9-4a5e-afda-e23e4de12553.png)
+![evalU](https://user-images.githubusercontent.com/93571291/186878593-eae70936-98e3-4305-affb-7df0a4d4caf5.jpg)
+
